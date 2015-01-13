@@ -1,3 +1,5 @@
+require 'uk_postcode'
+
 require 'address'
 require 'street'
 require 'locality'

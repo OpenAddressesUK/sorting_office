@@ -8,7 +8,8 @@ module SortingOffice
     end
 
     def name
-      @address.match(REGEX)[0]
+      postcode = UKPostcode.new(@address.match(REGEX)[0])
+      postcode.norm
     end
 
   end
