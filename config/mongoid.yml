@@ -1,0 +1,23 @@
+development:
+  sessions:
+    default:
+      database: distiller
+      hosts:
+        - localhost:27017
+test:
+  sessions:
+    default:
+      database: distiller_test
+      hosts:
+        - localhost:27017
+
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+      consistency: :strong
+      max_retries: 100
+      retry_interval: 5
+      timeout: 15
+      safe: true
+      refresh_interval: 10

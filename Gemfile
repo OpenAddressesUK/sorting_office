@@ -13,6 +13,7 @@ gem 'timecop'
 
 gem 'httparty'
 gem 'mongoid'
+gem 'mongoid-tree'
 gem 'mongoid_token'
 gem 'mongoid_geospatial'
 gem 'rake'
