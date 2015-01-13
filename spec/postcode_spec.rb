@@ -22,4 +22,13 @@ describe SortingOffice::Postcode do
     expect(postcode.name).to eq("EC2A 4JE")
   end
 
+  it "inherits the easting and northing from the database item" do
+    address = "3rd Floor, 65 Clifton Street, London ec2a4je"
+
+    postcode = SortingOffice::Postcode.new(address)
+
+    expect(postcode.easting).to eq(533048)
+    expect(postcode.northing).to eq(182126)
+  end
+
 end
