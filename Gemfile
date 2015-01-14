@@ -10,6 +10,7 @@ gem 'database_cleaner'
 gem 'pry'
 gem 'factory_girl'
 gem 'timecop'
+gem 'coveralls'
 
 gem 'httparty'
 gem 'mongoid'

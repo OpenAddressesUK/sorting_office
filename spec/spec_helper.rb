@@ -1,5 +1,8 @@
 $:.unshift File.join( File.dirname(__FILE__), "lib")
 
+require 'coveralls'
+Coveralls.wear!
+
 ENV["MONGOID_ENVIRONMENT"] = "test"
 
 require 'sorting_office'
