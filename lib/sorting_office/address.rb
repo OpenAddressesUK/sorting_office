@@ -1,7 +1,7 @@
 module SortingOffice
   class Address
 
-    attr_accessor :address, :postcode, :town, :locality
+    attr_accessor :address, :postcode, :town, :locality, :street
 
     def initialize(address)
       @address = address
@@ -10,7 +10,7 @@ module SortingOffice
     def parse
       get_postcode
       get_town
-      # We'll need to get street and PAO / SAO etc here to cover addresses without localities
+      get_street
       get_locality
     end
 
@@ -22,6 +22,11 @@ module SortingOffice
     def get_town
       @town = Town.calculate(@address, @postcode)
       @address = @address.gsub(/#{@town.name}/i, "")
+    end
+
+    def get_street
+      @street = Street.calculate(@address, @postcode)
+      @address = @address.gsub(/#{@street.name}/i, "")
     end
 
     def get_locality
