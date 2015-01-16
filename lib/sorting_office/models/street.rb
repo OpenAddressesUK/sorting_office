@@ -4,7 +4,7 @@ class Street
     nearby_streets = where({
       "lat_lng" => {
         "$near" => postcode.lat_lng.to_a,
-        "$maxDistance" => 0.001262 # Roughly 5 miles
+        "$maxDistance" => 0.00252589038
       }
     })
 
