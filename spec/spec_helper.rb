@@ -17,6 +17,8 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner[:mongoid].strategy = :truncation
     DatabaseCleaner[:mongoid].clean_with(:truncation)
+    Town.es.index.reset
+    Locality.es.index.reset
   end
 
   config.before(:each) do
@@ -26,9 +28,13 @@ RSpec.configure do |config|
     Postcode.create_indexes
     Locality.create_indexes
     Town.create_indexes
+    Town.es.index.reset
+    Locality.es.index.reset
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
+    Town.es.index.reset
+    Locality.es.index.reset
   end
 end
