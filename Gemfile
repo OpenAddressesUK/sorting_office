@@ -20,6 +20,7 @@ gem 'nokogiri'
 gem 'rubyzip'
 gem 'uk_postcode'
 gem 'mongoid_address_models', github: "OpenAddressesUK/mongoid_address_models"
+gem 'mongoid-elasticsearch'
 gem 'dotenv'
 gem 'breasal'
 gem 'platform-api'
