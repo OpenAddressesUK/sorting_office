@@ -31,7 +31,7 @@ module SortingOffice
 
     def get_locality
       @locality = Locality.calculate(@address, @postcode)
-      @address = @address.gsub(/#{@locality.name}/i, "")
+      @address = @address.gsub(/#{@locality.name}/i, "") if @locality
     end
 
   end
