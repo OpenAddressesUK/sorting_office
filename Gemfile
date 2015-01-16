@@ -4,8 +4,6 @@ ruby '2.1.4'
 source 'https://rubygems.org'
 
 gem 'rspec'
-gem 'webmock'
-gem 'vcr'
 gem 'database_cleaner'
 gem 'pry'
 gem 'factory_girl'
