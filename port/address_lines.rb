@@ -231,31 +231,60 @@ class AddressLines
   def get_aons
     aons = []
     
-    # Look for number at start of word
+    # For each non-blank address line
     for i in range(0,len(@unparsed))
       if @unparsed[i] != '':
-                words = @unparsed[i].split()
-                for j in range(0,len(words)):
-                    if words[j][0].isdigit():
-                        @aons.append([i,j,string.join(words[0:j]," "),words[j],string.join(words[j+1:]," ")])
-        pos = 1
+        # Split up the line
+        words = @unparsed[i].split()
+        # Does anything start with a number?
+        for j in range(0,len(words)):
+          if words[j][0].isdigit():
+            # Store the AON data in an array, with the number split out
+            # 0: address line
+            # 1: word number
+            # 2: pre-number section
+            # 3: number section
+            # 4: post-number section
+            @aons.append([i,j,string.join(words[0:j]," "),words[j],string.join(words[j+1:]," ")])
+          end
+        end
+        
+        # If no AONs have numbers, add the first line to the AON list
         if @aons == []:
-            @aons.append([0,0,0,"",@unparsed[0],""])
+          @aons.append([0,0,0,"",@unparsed[0],""])
+        end
+  
+        # If there is only one AON found so far
         if len(@aons) == 1:
-            @parsed['paon'] = {
-              'name' => (@aons[0][3]+" "+@aons[0][4]).strip()
-            }
-            pos = @aons[0][0] + 1
-            if @aons[0][0] > 0:
-                @parsed['saon'] = {
-                  'name' => @unparsed[0]
-                }
-        elif len(@aons) >= 2:
-            @parsed['paon'] = {
-              'name' => (@aons[1][3]+" "+@aons[1][4]).strip()
-            }
-            pos = @aons[0][0] + 1
+          # Make the first AON found into the PAON
+          @parsed['paon'] = {
+            # Use the number and anything after it
+            'name' => (@aons[0][3]+" "+@aons[0][4]).strip()
+          }
+          # If the AON isn't on line 0 of the address, then there is a SAON before it
+          # house name, etc, so store that too.
+          if @aons[0][0] > 0:
             @parsed['saon'] = {
-              'name' => @unparsed[0].strip()
+              'name' => @unparsed[0]
             }
-        return @aons
+          end
+                
+        # If there is more than one AON
+        elsif len(@aons) >= 2
+          # The PAON is the second AON we've found, for some reason
+          @parsed['paon'] = {
+            'name' => (@aons[1][3]+" "+@aons[1][4]).strip()
+          }
+          # The SAON is the first line of the address
+          @parsed['saon'] = {
+            'name' => @unparsed[0].strip()
+          }
+          # I assume everything else gets thrown away.
+        end
+        
+        @aons
+      end
+    end
+  end
+  
+end
