@@ -35,11 +35,16 @@ describe SortingOffice::Address do
   end
 
   it "removes the street after parsing" do
-    address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE")
+    FactoryGirl.create(:street, name: "PRINCE'S ROAD", lat_lng: [51.5224342908254, -0.08321407726274722])
+    address = SortingOffice::Address.new("123 Princes Road, London EC2A 4JE")
     address.get_postcode
     address.get_street
 
-    expect(address.address).to_not match /Clifton Street/
+    expect(address.address).to_not match /Princes Road/
+  end
+
+  it "ignores special characters when removing a street" do
+
   end
 
   it "gets the paon and saon" do

@@ -83,7 +83,8 @@ module SortingOffice
     private
 
       def remove_element(el)
-        @address.reverse.sub(/#{el.name.reverse}/i, "").reverse
+        pattern = el.name.reverse.gsub(/([^0-9A-Za-z ])/, '\1?')
+        @address.reverse.sub(/#{pattern}/i, "").reverse
       end
 
   end
