@@ -7,7 +7,7 @@ class Town
     matches = []
 
     results.each do |r|
-      Town.where(name: r.name).each do |town|
+      Town.where(name: r.name).each do |town| # We do this to cover post towns with more than one postcode area (i.e. London)
         matches << town if town.area == postcode.area
       end
     end
