@@ -17,9 +17,9 @@ module SortingOffice
         {
           saon: address.saon,
           paon: address.paon,
-          street: address.street.try(:name),
+          street: address.street.try(:name).try(:titleize),
           locality: address.locality.try(:name),
-          town: address.town.try(:name),
+          town: address.town.try(:name).try(:titleize),
           postcode: address.postcode.try(:name)
         }.to_json
       end

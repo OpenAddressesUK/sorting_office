@@ -20,8 +20,8 @@ describe SortingOffice::App do
 
     expect(response["saon"]).to eq("3rd Floor")
     expect(response["paon"]).to eq("65")
-    expect(response["street"]).to eq("CLIFTON STREET")
-    expect(response["town"]).to eq("LONDON")
+    expect(response["street"]).to eq("Clifton Street")
+    expect(response["town"]).to eq("London")
     expect(response["postcode"]).to eq("EC2A 4JE")
   end
 
