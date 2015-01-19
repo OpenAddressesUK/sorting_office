@@ -188,3 +188,20 @@
   locality: Bletchley
   town: Milton Keynes
   postcode: MK3 6EB
+
+# I'M ON A BOAT
+- address: Hermitage Community Moorings, 16 Wapping High Street, London E1W 1NG
+  saon: Hermitage Community Moorings
+  paon: "16"
+  street: Wapping High Street
+  locality:
+  town: London
+  postcode: E1W 1NG
+  
+- address: Flat 2, 138 Gordon Road, London, SE15 3RB
+  saon: Flat 2
+  paon: "138"
+  street: Gordon Road
+  locality:
+  town: London
+  postcode: SE15 3RB
