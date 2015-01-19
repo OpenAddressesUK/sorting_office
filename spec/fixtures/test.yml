@@ -1,0 +1,190 @@
+# Country on the end
+
+- address: 13 Egmont Road, Middlesbrough, TS4 2HT, United Kingdom
+  saon:
+  paon: "13"
+  street: Egmont Road
+  locality:
+  town: Middlesbrough
+  postcode: TS4 2HT
+
+# Strange examples taken from https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
+
+- address: Royal Opera House, Covent Garden, London, WC2E 9DD
+  saon:
+  paon: Royal Opera House
+  street: Covent Garden
+  locality:
+  town: London
+  postcode: WC2E 9DD
+  
+- address: 1A Egmont Road, Middlesbrough, TS4 2HT
+  saon:
+  paon: 1A
+  street: Egmont Road
+  locality:
+  town: Middlesbrough
+  postcode: TS4 2HT
+
+- address: 4-5 Bonhill Street, London, EC2A 4BX
+  saon:
+  paon: 4-5
+  street: Bonhill Street
+  locality:
+  town: London
+  postcode: EC2A 4BX
+
+- address: 0 Egmont Road, Middlesbrough, TS4 2HT
+  saon:
+  paon: "0"
+  street: Egmont Road
+  locality:
+  town: Middlesbrough
+  postcode: TS4 2HT
+
+- address: Minusone Priory Road, Newbury, RG14 7QS
+  saon:
+  paon: Minusone
+  street: Priory Road
+  locality:
+  town: Newbury
+  postcode: RG14 7QS
+
+- address: -1 Priory Road, Newbury, RG14 7QS
+  saon:
+  paon: -1
+  street: Priory Road
+  locality:
+  town: Newbury
+  postcode: RG14 7QS
+
+- address: Idas Court, 4-6 Princes Road, Hull, HU5 2RD
+  saon: Idas Court
+  paon: 4-6
+  street: Princes Road
+  locality:
+  town: Hull
+  postcode: HU5 2RD
+
+- address: 50 Ammanford Road, Tycroes, Ammanford, SA18 3QJ
+  saon: 
+  paon: "50"
+  street: Ammanford Road
+  locality: Tycroes
+  town: Ammanford
+  postcode: SA18 3QJ
+
+- address: 50 Ammanford Road, Llandybie, Ammanford, SA18 3YF
+  saon: 
+  paon: "50"
+  street: Ammanford Road
+  locality: Llandybie
+  town: Ammanford
+  postcode: SA18 3YF
+
+- address: Flat 18, Da Vinci House, 44 Saffron Hill, London, EC1N 8FH, United Kingdom
+  saon: Flat 18, Da Vinci House
+  paon: "44"
+  street: Saffron Hill
+  locality: 
+  town: London
+  postcode: EC1N 8FH
+  
+- address: 3 Store, 311-318 High Holborn, London, WC1V 7BN
+  saon: 3 Store
+  paon: 311-318
+  street: High Holborn
+  locality: 
+  town: London
+  postcode: WC1V 7BN
+
+- address: 8 Seven Gardens Burgh, WOODBRIDGE, IP13 6SU
+  saon:
+  paon: "8"
+  street: Seven Gardens Burgh
+  locality: 
+  town: Woodbridge
+  postcode: IP13 6SU
+  
+- address: 17 Hill Street, London, W1J 5LJ
+  saon:
+  paon: "17"
+  street: Hill Street
+  locality: 
+  town: London
+  postcode: W1J 5LJ
+  
+- address: 3 Bishops Square Business Park, Hatfield, AL10 9NA
+  saon:
+  paon: "3"
+  street: Bishops Square Business Park
+  locality: 
+  town: Hatfield
+  postcode: AL10 9NA
+
+- address: 6 Elm Avenue, Runcorn Road, Birmingham, B12 8QX
+  saon:
+  paon: "6"
+  street: Elm Avenue, Runcorn Road
+  locality:
+  town: Birmingham
+  postcode: B12 8QX
+
+# DROP TABLE CONSULTANTS; LTD: https://opencorporates.com/companies/gb/08768324
+- address: Unit 11 Hove Business Centre, Fonthill Road, Hove, East Sussex, BN3 6HA
+  saon:
+  paon: Unit 11 Hove Business Centre
+  street: Fonthill Road
+  locality:
+  town: Hove
+  postcode: BN3 6HA
+
+# Kill me now  
+- address: DVLA Swansea, SA99 1BA
+  saon:
+  paon: DVLA
+  street: 
+  locality:
+  town: Swansea
+  postcode: SA99 1BA
+
+# Parts with commas in them
+- address: Society of College, National & University Libraries, 102 Euston Street, London, NW1 2HA
+  saon: Society of College, National & University Libraries
+  paon: "102"
+  street: Euston Street
+  locality:
+  town: London
+  postcode: NW1 2HA
+  
+- address: St. Judes & St. Pauls C of E (Va) Primary School, 10 Kingsbury Road, London, N1 4AZ
+  saon: St. Judes & St. Pauls C of E (Va) Primary School
+  paon: "10"
+  street: Kingsbury Road
+  locality:
+  town: London
+  postcode: N1 4AZ
+
+- address: 1 Acre View, Bo’ness, EH51 9RQ
+  saon:
+  paon: "1"
+  street: Acre View
+  locality:
+  town: Bo'ness
+  postcode: EH51 9RQ
+
+- address: 1 Highview Terrace, Westward Ho!, Bideford, EX39 1AQ
+  saon:
+  paon: "1"
+  street: Highview Terrace
+  locality: Westward Ho!
+  town: Bideford
+  postcode: EX39 1AQ
+
+- address: The National Museum of Computing, Bletchley Park, Sherwood Drive, Bletchley, Milton Keynes, MK3 6EB
+  saon: The National Museum of Computing
+  paon: Bletchley Park
+  street: Sherwood Drive
+  locality: Bletchley
+  town: Milton Keynes
+  postcode: MK3 6EB
