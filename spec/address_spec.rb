@@ -42,4 +42,15 @@ describe SortingOffice::Address do
     expect(address.address).to_not match /Clifton Street/
   end
 
+  it "gets the paon and saon" do
+    address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE")
+    address.get_postcode
+    address.get_town
+    address.get_street
+    address.get_aon
+
+    expect(address.paon).to eq("65")
+    expect(address.saon).to eq("3rd Floor")
+  end
+
 end
