@@ -205,3 +205,12 @@
   locality:
   town: London
   postcode: SE15 3RB
+  
+  # FRACTIONS
+- address: Flat 4/266 Southgate Road, London N13LY
+  saon: Flat 4
+  paon: "266"
+  street: Southgate Road
+  locality:
+  town: London
+  postcode: N13LY
