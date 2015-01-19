@@ -7,7 +7,9 @@ class Town
     matches = []
 
     results.each do |r|
-      matches << r if r.area == postcode.area
+      Town.where(name: r.name).each do |town|
+        matches << town if town.area == postcode.area
+      end
     end
 
     if matches.count == 1
