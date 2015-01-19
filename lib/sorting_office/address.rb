@@ -80,5 +80,11 @@ module SortingOffice
 
     end
 
+    private
+
+      def remove_element(el)
+        @address.reverse.sub(/#{el.name.reverse}/i, "").reverse
+      end
+
   end
 end
