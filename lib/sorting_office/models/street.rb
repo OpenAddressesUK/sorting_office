@@ -16,6 +16,8 @@ class Street
 
     if matches.count == 1
       return matches.first
+    elsif matches.count == 0
+      nil
     else
       first_match = matches[0]
       second_match = matches[1]
