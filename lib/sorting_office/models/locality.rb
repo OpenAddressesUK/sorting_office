@@ -12,6 +12,8 @@ class Locality
 
     sorted = results.sort_by { |r| r.distance }
 
+    @locality = nil
+
     sorted.each do |r|
       if address.match(/#{Regexp.escape(r.name)}/i) && r.distance < 5
         @locality = r
