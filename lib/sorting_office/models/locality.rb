@@ -11,7 +11,15 @@ class Locality
     end
 
     sorted = results.sort_by { |r| r.distance }
-    sorted.first
+
+    sorted.each do |r|
+      if address.match(/#{Regexp.escape(r.name)}/i) && r.distance < 5
+        @locality = r
+        break
+      end
+    end
+
+    @locality
   end
 
   elasticsearch!

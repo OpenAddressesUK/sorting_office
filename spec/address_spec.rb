@@ -25,12 +25,43 @@ describe SortingOffice::Address do
     expect(address.address).to_not match /London/
   end
 
+  it "only removes the last instance of the town name after parsing" do
+    FactoryGirl.create(:street, name: "LONDON ROAD", lat_lng: [51.5224342908254, -0.08321407726274722])
+    address = SortingOffice::Address.new("123 London Road, London EC2A 4JE")
+    address.get_postcode
+    address.get_town
+
+    expect(address.address).to eq("123 London Road,  ")
+  end
+
   it "removes the street after parsing" do
     address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE")
     address.get_postcode
     address.get_street
 
     expect(address.address).to_not match /Clifton Street/
+  end
+
+  it "gets the paon and saon" do
+    address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE")
+    address.get_postcode
+    address.get_town
+    address.get_street
+    address.get_aon
+
+    expect(address.paon).to eq("65")
+    expect(address.saon).to eq("3rd Floor")
+  end
+
+  it "gets the paon if no saon is present" do
+    FactoryGirl.create(:street, name: "WALDEMAR AVENUE", lat_lng: [51.5224342908254, -0.08321407726274722])
+    address = SortingOffice::Address.new("26 Waldemar Avenue Mansions, Waldemar Avenue, London, EC2A 4JE")
+    address.get_postcode
+    address.get_town
+    address.get_street
+    address.get_aon
+
+    expect(address.paon).to eq("26 Waldemar Avenue Mansions")
   end
 
 end

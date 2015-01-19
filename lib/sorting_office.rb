@@ -2,7 +2,7 @@ require 'bundler'
 Bundler.require(:default)
 
 require 'mongoid-elasticsearch'
-Mongoid::Elasticsearch.prefix = ENV["MONGOID_ENVIRONMENT"]
+Mongoid::Elasticsearch.prefix = ENV["MONGOID_ENVIRONMENT"] || ""
 
 require 'mongoid_address_models/require_all'
 
