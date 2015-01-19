@@ -53,4 +53,15 @@ describe SortingOffice::Address do
     expect(address.saon).to eq("3rd Floor")
   end
 
+  it "gets the paon if no saon is present" do
+    FactoryGirl.create(:street, name: "WALDEMAR AVENUE", lat_lng: [51.5224342908254, -0.08321407726274722])
+    address = SortingOffice::Address.new("26 Waldemar Avenue Mansions, Waldemar Avenue, London, EC2A 4JE")
+    address.get_postcode
+    address.get_town
+    address.get_street
+    address.get_aon
+
+    expect(address.paon).to eq("26 Waldemar Avenue Mansions")
+  end
+
 end

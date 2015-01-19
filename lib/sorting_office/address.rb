@@ -23,17 +23,17 @@ module SortingOffice
     def get_town
       @town = Town.calculate(@address, @postcode)
       # Only remove the last instance of the town name (as the town name may be in the street too)
-      @address = @address.reverse.sub(/#{@town.name.reverse}/i, "").reverse if @town
+      @address = remove_element(@town) if @town
     end
 
     def get_street
       @street = Street.calculate(@address, @postcode)
-      @address = @address.gsub(/#{@street.name}/i, "") if @street
+      @address = remove_element(@street) if @street
     end
 
     def get_locality
       @locality = Locality.calculate(@address, @postcode)
-      @address = @address.gsub(/#{@locality.name}/i, "") if @locality
+      @address = remove_element(@locality) if @locality
     end
 
     def get_aon
@@ -69,7 +69,7 @@ module SortingOffice
         @paon = aons.first.last
 
         # If the AON isn't on line 0 of the address, then there is a SAON before it
-        if @paon[0] != 0
+        if aons.first[0] != 0
           @saon = lines.first.last
         end
       elsif aons.count == 2 # If there is more than one AON
