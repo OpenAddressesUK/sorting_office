@@ -21,7 +21,8 @@ module SortingOffice
 
     def get_town
       @town = Town.calculate(@address, @postcode)
-      @address = @address.gsub(/#{@town.name}/i, "") if @town
+      # Only remove the last instance of the town name (as the town name may be in the street too)
+      @address = @address.reverse.sub(/#{@town.name.reverse}/i, "").reverse if @town
     end
 
     def get_street
