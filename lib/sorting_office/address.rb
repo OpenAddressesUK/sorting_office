@@ -21,12 +21,12 @@ module SortingOffice
 
     def get_town
       @town = Town.calculate(@address, @postcode)
-      @address = @address.gsub(/#{@town.name}/i, "")
+      @address = @address.gsub(/#{@town.name}/i, "") if @town
     end
 
     def get_street
       @street = Street.calculate(@address, @postcode)
-      @address = @address.gsub(/#{@street.name}/i, "")
+      @address = @address.gsub(/#{@street.name}/i, "") if @street
     end
 
     def get_locality
