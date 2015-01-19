@@ -7,3 +7,12 @@
 
 # Season's greetings
 - address: Father Christmas, Santa’s Grotto, Reindeerland, XM4 5HQ
+
+# Parts with commas in them
+- address: Society of College, National & University Libraries, 102 Euston Street, London, NW1 2HA
+  saon: Society of College, National & University Libraries
+  paon: "102"
+  street: Euston Street
+  locality:
+  town: London
+  postcode: NW1 2HA

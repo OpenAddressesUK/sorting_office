@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'dev_spec_helper'
 
 describe SortingOffice::Address do
 
@@ -8,19 +8,16 @@ describe SortingOffice::Address do
       # Create address parser
       address = SortingOffice::Address.new(test_data["address"])
       # DO IT
-      address.get_postcode
-      address.get_town
-      address.get_street
-      address.get_aon
+      address.parse
       # Expectations
-      expect(address.postcode).to eq(test_data["postcode"])      
-      expect(address.town).to eq(test_data["town"])
-      expect(address.locality).to eq(test_data["locality"])
-      expect(address.street).to eq(test_data["street"])
+      expect(address.postcode.name).to eq(test_data["postcode"])
+      expect(address.town.try(:name)).to eq(test_data["town"].upcase)
+      expect(address.locality.try(:name)).to eq(test_data["locality"])
+      expect(address.street.try(:name)).to eq(test_data["street"].try(:upcase))
       expect(address.paon).to eq(test_data["paon"])
       expect(address.saon).to eq(test_data["saon"])
     end
-    
+
   end
-  
+
 end

@@ -17,7 +17,7 @@
   locality:
   town: London
   postcode: WC2E 9DD
-  
+
 - address: 1A Egmont Road, Middlesbrough, TS4 2HT
   saon:
   paon: 1A
@@ -52,7 +52,7 @@
 
 - address: -1 Priory Road, Newbury, RG14 7QS
   saon:
-  paon: -1
+  paon: "-1"
   street: Priory Road
   locality:
   town: Newbury
@@ -61,13 +61,13 @@
 - address: Idas Court, 4-6 Princes Road, Hull, HU5 2RD
   saon: Idas Court
   paon: 4-6
-  street: Princes Road
+  street: Prince's Road
   locality:
   town: Hull
   postcode: HU5 2RD
 
 - address: 50 Ammanford Road, Tycroes, Ammanford, SA18 3QJ
-  saon: 
+  saon:
   paon: "50"
   street: Ammanford Road
   locality: Tycroes
@@ -75,7 +75,7 @@
   postcode: SA18 3QJ
 
 - address: 50 Ammanford Road, Llandybie, Ammanford, SA18 3YF
-  saon: 
+  saon:
   paon: "50"
   street: Ammanford Road
   locality: Llandybie
@@ -86,39 +86,39 @@
   saon: Flat 18, Da Vinci House
   paon: "44"
   street: Saffron Hill
-  locality: 
+  locality:
   town: London
   postcode: EC1N 8FH
-  
+
 - address: 3 Store, 311-318 High Holborn, London, WC1V 7BN
   saon: 3 Store
   paon: 311-318
   street: High Holborn
-  locality: 
+  locality:
   town: London
   postcode: WC1V 7BN
 
-- address: 8 Seven Gardens Burgh, WOODBRIDGE, IP13 6SU
+- address: 8 Seven Gardens Road, Burgh, WOODBRIDGE, IP13 6SU
   saon:
   paon: "8"
-  street: Seven Gardens Burgh
-  locality: 
+  street: Seven Gardens Road
+  locality: Burgh
   town: Woodbridge
   postcode: IP13 6SU
-  
+
 - address: 17 Hill Street, London, W1J 5LJ
   saon:
   paon: "17"
   street: Hill Street
-  locality: 
+  locality:
   town: London
   postcode: W1J 5LJ
-  
+
 - address: 3 Bishops Square Business Park, Hatfield, AL10 9NA
   saon:
   paon: "3"
   street: Bishops Square Business Park
-  locality: 
+  locality:
   town: Hatfield
   postcode: AL10 9NA
 
@@ -139,24 +139,15 @@
   town: Hove
   postcode: BN3 6HA
 
-# Kill me now  
+# Kill me now
 - address: DVLA Swansea, SA99 1BA
   saon:
   paon: DVLA
-  street: 
+  street:
   locality:
   town: Swansea
   postcode: SA99 1BA
 
-# Parts with commas in them
-- address: Society of College, National & University Libraries, 102 Euston Street, London, NW1 2HA
-  saon: Society of College, National & University Libraries
-  paon: "102"
-  street: Euston Street
-  locality:
-  town: London
-  postcode: NW1 2HA
-  
 - address: St. Judes & St. Pauls C of E (Va) Primary School, 10 Kingsbury Road, London, N1 4AZ
   saon: St. Judes & St. Pauls C of E (Va) Primary School
   paon: "10"
@@ -165,7 +156,7 @@
   town: London
   postcode: N1 4AZ
 
-- address: 1 Acre View, Bo’ness, EH51 9RQ
+- address: 1 Acre View, Bo'ness, EH51 9RQ
   saon:
   paon: "1"
   street: Acre View
@@ -173,13 +164,13 @@
   town: Bo'ness
   postcode: EH51 9RQ
 
-- address: 1 Highview Terrace, Westward Ho!, Bideford, EX39 1AQ
+- address: 41 Nelson Road, Westward Ho!, Bideford, EX39 1LG
   saon:
-  paon: "1"
-  street: Highview Terrace
-  locality: Westward Ho!
+  paon: "41"
+  street: Nelson Road
+  locality: Westward Ho
   town: Bideford
-  postcode: EX39 1AQ
+  postcode: EX39 1LG
 
 - address: The National Museum of Computing, Bletchley Park, Sherwood Drive, Bletchley, Milton Keynes, MK3 6EB
   saon: The National Museum of Computing
@@ -197,7 +188,7 @@
   locality:
   town: London
   postcode: E1W 1NG
-  
+
 - address: Flat 2, 138 Gordon Road, London, SE15 3RB
   saon: Flat 2
   paon: "138"
@@ -205,7 +196,7 @@
   locality:
   town: London
   postcode: SE15 3RB
-  
+
   # FRACTIONS
 - address: Flat 4/266 Southgate Road, London N13LY
   saon: Flat 4
