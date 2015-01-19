@@ -26,4 +26,13 @@ describe Street do
     expect(street).to eq(@street)
   end
 
+  it "returns the correct street when the official street name has a special character" do
+    s = FactoryGirl.create(:street, name: "ST JOHN'S ROAD", lat_lng: [51.5224342908258, -0.08321407726274730])
+    address = "123 St Johns Road, London EC2A 4JE"
+
+    street = Street.calculate(address, @postcode)
+
+    expect(street).to eq(s)
+  end
+
 end
