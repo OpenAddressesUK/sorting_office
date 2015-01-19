@@ -88,7 +88,7 @@ module SortingOffice
 
         # If the AON isn't on line 0 of the address, then there is a SAON before it
         if aons.first[0] != 0
-          @saon = lines.first.last
+          @saon = lines.first
         end
       elsif aons.count == 2 # If there is more than one AON
         # The PAON is the second AON we've found, for some reason
