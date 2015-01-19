@@ -56,6 +56,24 @@ module SortingOffice
             end
           end
         end
+      else
+        # Grab the first line
+        line = lines.first
+        # Split by spaces
+        words = line.split(" ")
+        words.each_with_index do |w, word_number|
+          # If the word begins with a number, it's probably an aon
+          if w.match(/^[0-9]+/)
+            aons << [
+              aons.count,
+              word_number,
+              w.strip
+            ]
+          else
+            # If there is already an aon, it's probably a suffix (such as 'floor' etc)
+            aons.last[2] += " #{w.strip}"
+          end
+        end
       end
 
       # If no AONs have numbers, add the first line to the AON list
