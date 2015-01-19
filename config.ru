@@ -2,6 +2,6 @@ require 'rubygems'
 
 ENV['RACK_ENV'] ||= 'development'
 
-require File.join(File.dirname(__FILE__), 'nighttrain.rb')
+require File.join(File.dirname(__FILE__), 'sorting_office.rb')
 
-run NightTrain
+run SortingOffice::App

@@ -8,9 +8,18 @@ ENV["MONGOID_ENVIRONMENT"] = "test"
 require 'sorting_office'
 require 'database_cleaner'
 require 'factory_girl'
+require 'rack/test'
+
+module RSpecMixin
+  include Rack::Test::Methods
+  require './sorting_office'
+  def app() SortingOffice::App end
+end
 
 RSpec.configure do |config|
   config.order = "random"
+  config.include RSpecMixin
+
   FactoryGirl.definition_file_paths = ["#{Gem.loaded_specs['mongoid_address_models'].full_gem_path}/lib/mongoid_address_models/factories"]
   FactoryGirl.find_definitions
 
