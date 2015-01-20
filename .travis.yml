@@ -20,3 +20,4 @@ deploy:
   app: sorting-office
   on:
     repo: OpenAddressesUK/sorting_office
+  run: "rake es:index"
