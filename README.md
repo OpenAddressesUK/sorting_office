@@ -1,3 +1,9 @@
+[![Build Status](http://img.shields.io/travis/OpenAddressesUK/sorting_office.svg)](https://travis-ci.org/OpenAddressesUK/sorting_office)
+[![Dependency Status](http://img.shields.io/gemnasium/OpenAddressesUK/sorting_office.svg)](https://gemnasium.com/OpenAddressesUK/sorting_office)
+[![Coverage Status](http://img.shields.io/coveralls/OpenAddressesUK/sorting_office.svg)](https://coveralls.io/r/OpenAddressesUK/sorting_office)
+[![Code Climate](http://img.shields.io/codeclimate/github/OpenAddressesUK/sorting_office.svg)](https://codeclimate.com/github/OpenAddressesUK/sorting_office)
+[![Badges](http://img.shields.io/:badges-5/5-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+
 # Sorting Office
 
 A Sinatra app that takes a UK address string and attempts to parse it into its constituent parts.
