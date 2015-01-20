@@ -17,7 +17,7 @@ module SortingOffice
 
     def get_postcode
       @postcode = Postcode.calculate(@address)
-      @address = @address.gsub(@postcode.name, "")
+      @address = @address.gsub(/#{@postcode.name.gsub(' ', ' ?')}/i, "")
     end
 
     def get_town
