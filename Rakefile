@@ -13,9 +13,11 @@ task :default => :spec
 namespace :es do
   task :index do
     print "Indexing localities...".yellow
+    Locality.es.index.create
     Locality.es.index_all
     print " Done!\n".green
     print "Indexing towns...".yellow
+    Town.es.index.create
     Town.es.index_all
     print " Done!\n".green
   end
