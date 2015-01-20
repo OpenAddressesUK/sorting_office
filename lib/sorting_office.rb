@@ -2,6 +2,7 @@ require 'bundler'
 Bundler.require(:default)
 
 require 'mongoid-elasticsearch'
+Mongoid::Elasticsearch.autocreate_indexes = false
 Mongoid::Elasticsearch.prefix = ENV["MONGOID_ENVIRONMENT"] || ""
 
 if ENV["BONSAI_URL"]
