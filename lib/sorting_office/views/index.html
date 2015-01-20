@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorting Office : Open Addresses</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+</body>
+  <a href="https://github.com/openaddressesuk/sorting_office"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  <div class="container">
+
+    <div class="starter-template">
+      <h1>Sorting Office</h1>
+
+      <p>A Sinatra app that takes a UK address string and attempts to parse it into its constituent parts.</p>
+
+      <h2>How to use</h2>
+
+      <p>Simply POST your address string like so (using curl):</p>
+
+      <p><code>curl --data "address=10 Downing Street, London, SW1A 2AA" https://sorting-office.openaddressesuk.org/address</code></p>
+
+      <p>You'll get the following response in JSON format:</p>
+
+      <pre>
+{
+  "saon": null,
+  "paon": "10",
+  "street": "Downing Street",
+  "locality": null,
+  "town": "London",
+  "postcode": "SW1A 2AA"
+}</pre>
+
+      <p>It's that simple!</p>
+
+      <h2>Feedback</h2>
+
+      <p>We know that there are <a href="https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/">lots of edge cases with addresses</a>, and we know that we might not have caught 100% of them. If there's anything you notice, please <a href="https://github.com/OpenAddressesUK/sorting_office/issues">let us know</a>, or better still <a href="https://github.com/OpenAddressesUK/sorting_office/pulls">open a pull request to fix it!</a>.</p>
+
+      <h2>Who built this?</h2>
+
+      <p>This was built by the team at <a href="https://alpha.openaddressesuk.org/">OpenAddresses</a>. To find out more, visit the <a href="https://alpha.openaddressesuk.org/">project website</a>.</p>
+
+    </div>
+
+  </div><!-- /.container -->
+
+</body>

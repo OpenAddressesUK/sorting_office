@@ -1,10 +1,10 @@
 language: ruby
 cache: bundler
 services:
-  - mongodb
-  - elasticsearch
+- mongodb
+- elasticsearch
 rvm:
-  - 2.1.4
+- 2.1.4
 notifications:
   irc:
     channels:
@@ -13,3 +13,11 @@ notifications:
     - "%{repository} %{branch} - %{message} %{build_url}"
     on_success: change
     on_failure: always
+deploy:
+  provider: heroku
+  api_key:
+    secure: EbxZp7FXZ4q95J/Mz3az2sS6mcRuMnkj6QAP8JmNIGh9hwXx7EuvR0eE9uSaSxwg6S2iofz/FnUgO9CUjhaLJ/Gz9qiMhPWxawjQUg1KD+WYrCU8ekoc0CWzECVygntSPIh6pe27VaWVrtEW6JSIsWXBA4TaKMfDYgiIbORTmxY=
+  app: sorting-office
+  on:
+    repo: OpenAddressesUK/sorting_office
+  run: "rake es:index"
