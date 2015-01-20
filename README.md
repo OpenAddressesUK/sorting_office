@@ -31,7 +31,7 @@ It's that simple!
 
 ## Edge cases
 
-We know that there are [lots of edge cases with addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/), and we know that we might not have caught 100% of them. If there's anything you notice, please [let us know](https://github.com/OpenAddressesUK/sorting_office/issues), or better still [open a pull request](https://github.com/OpenAddressesUK/sorting_office/pulls).
+We know that there are [lots of edge cases with addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/), and we know that we might not have caught 100% of them. If there's anything you notice, please [let us know](https://github.com/OpenAddressesUK/sorting_office/issues), or better still [open a pull request to fix it!](https://github.com/OpenAddressesUK/sorting_office/pulls).
 
 ## Running in development
 
@@ -66,7 +66,7 @@ To run the standard test suite, simply run:
 
     bundle exec rake
 
-We have another set of tests, which we know don't all pass. This takes some of the edge cases detailed in the [Falsehoods programmers believe about addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/) blog post, as well as some of the others we've encountered on our travels and tries to parse them all correctly. If you're interested in helping out, getting some of these tests to pass would be amazing! To run these tests, simply run
+We have another set of tests, which we know don't all pass. This takes some of the edge cases detailed in the [Falsehoods programmers believe about addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/) blog post, as well as some of the others we've encountered on our travels, and tries to parse them all correctly. If you're interested in helping out, getting some of these tests to pass would be amazing! To run these tests, simply run
 
     rspec spec/big_old_list_spec.rb
 
