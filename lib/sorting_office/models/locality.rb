@@ -24,6 +24,10 @@ class Locality
     @locality
   end
 
-  elasticsearch!
+  elasticsearch!({
+    index_options: {
+      foo: "bar" # Shitty hack to get this working with Bonsai
+    }
+  })
 
 end
