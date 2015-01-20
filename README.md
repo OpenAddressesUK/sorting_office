@@ -31,8 +31,8 @@ We know that there are [lots of edge cases with addresses](https://www.mjt.me.uk
 
 If you haven't already, install the external dependencies below
 
-  * [MongoDB]()
-  * [Elasticsearch]()
+  * [MongoDB](http://docs.mongodb.org/manual/installation/)
+  * [Elasticsearch](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/_installing_elasticsearch.html)
 
 Clone the repo:
 
