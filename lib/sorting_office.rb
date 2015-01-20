@@ -4,6 +4,10 @@ Bundler.require(:default)
 require 'mongoid-elasticsearch'
 Mongoid::Elasticsearch.prefix = ENV["MONGOID_ENVIRONMENT"] || ""
 
+if ENV["BONSAI_URL"]
+  Mongoid::Elasticsearch.client_options = { url: ENV["BONSAI_URL"] }
+end
+
 require 'mongoid_address_models/require_all'
 
 Mongoid.load!(File.join(File.dirname(__FILE__), "..", "config", "mongoid.yml"), ENV["MONGOID_ENVIRONMENT"] || :development)
