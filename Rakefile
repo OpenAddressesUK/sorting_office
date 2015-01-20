@@ -6,4 +6,26 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = '--exclude-pattern "spec/big_old_list_spec.rb"'
 end
 
+task :bootstrap do
+  require 'sorting_office'
+  require 'colorize'
+  # Download and extract database dump
+  puts "Downloading the database dump...".green
+  `wget https://s3-eu-west-1.amazonaws.com/download.openaddressesuk.org/sorting_office/dump.tar.gz 2>&1`
+  puts "Extracting the files...".green
+  `tar -zxvf dump.tar.gz 2>&1`
+  # Mongo import the extract
+  puts "Importing the data...".green
+  `mongorestore --db distiller ./dump/distiller 2>&1`
+  # Run the indexes
+  puts "Running the indexes...".green
+  Locality.es.index_all
+  Town.es.index_all
+  # Clean up
+  puts "Cleaning up...".green
+  `rm dump.tar.gz 2>&1`
+  `rm -rf ./dump 2>&1`
+  puts "Done!".green
+end
+
 task :default => :spec
