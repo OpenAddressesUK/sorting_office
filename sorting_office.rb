@@ -18,14 +18,21 @@ module SortingOffice
         address = SortingOffice::Address.new(params[:address])
         address.parse
 
-        {
-          saon: address.saon,
-          paon: address.paon,
-          street: address.street.try(:name).try(:titleize),
-          locality: address.locality.try(:name),
-          town: address.town.try(:name).try(:titleize),
-          postcode: address.postcode.try(:name)
-        }.to_json
+        if address.postcode.nil?
+          status 400
+          {
+            error: "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
+          }.to_json
+        else
+          {
+            saon: address.saon,
+            paon: address.paon,
+            street: address.street.try(:name).try(:titleize),
+            locality: address.locality.try(:name),
+            town: address.town.try(:name).try(:titleize),
+            postcode: address.postcode.try(:name)
+          }.to_json
+        end
       end
     end
 

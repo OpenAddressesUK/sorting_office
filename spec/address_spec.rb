@@ -94,4 +94,11 @@ describe SortingOffice::Address do
     expect(address.paon).to eq("26 Waldemar Avenue Mansions")
   end
 
+  it "doesn't error if no postcode is present" do
+    address = SortingOffice::Address.new("3rd Floor 65 Clifton Street, London")
+    address.parse
+
+    expect(address.postcode).to eq(nil)
+  end
+
 end

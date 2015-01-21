@@ -25,4 +25,12 @@ describe SortingOffice::App do
     expect(response["postcode"]).to eq("EC2A 4JE")
   end
 
+  it "returns an error if there is no postcode provided" do
+    post '/address', address: "3rd Floor, 65 Clifton Street, London"
+
+    expect(last_response.status).to eq(400)
+    response = JSON.parse last_response.body
+    expect(response["error"]).to eq("We couldn't detect a postcode in your address. Please resubmit with a valid postcode.")
+  end
+
 end

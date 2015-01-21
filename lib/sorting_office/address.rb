@@ -9,15 +9,17 @@ module SortingOffice
 
     def parse
       get_postcode
-      get_town
-      get_street
-      get_locality
-      get_aon
+      unless @postcode.nil?
+        get_town
+        get_street
+        get_locality
+        get_aon
+      end
     end
 
     def get_postcode
       @postcode = Postcode.calculate(@address)
-      @address = @address.gsub(/#{@postcode.name.gsub(' ', ' ?')}/i, "")
+      @address = @address.gsub(/#{@postcode.name.gsub(' ', ' ?')}/i, "") if @postcode
     end
 
     def get_town
