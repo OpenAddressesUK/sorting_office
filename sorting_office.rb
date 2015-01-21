@@ -30,7 +30,8 @@ module SortingOffice
             street: address.street.try(:name).try(:titleize),
             locality: address.locality.try(:name),
             town: address.town.try(:name).try(:titleize),
-            postcode: address.postcode.try(:name)
+            postcode: address.postcode.try(:name),
+            provenance: address.provenance
           }.to_json
         end
       end
