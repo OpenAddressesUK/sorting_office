@@ -34,7 +34,13 @@
   "postcode": "SW1A 2AA"
 }</pre>
 
-      <p>It's that simple!</p>
+      <p>The only caveat is that you must provide a valid postcode with your request, otherwise the service won't be able to calculate the other address parts. If a postcode is missing or invalid, the service will return a <code>400</code> error code and the following JSON:</p>
+
+<pre>
+{
+  "error": "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
+}
+</pre>
 
       <h2>Feedback</h2>
 
