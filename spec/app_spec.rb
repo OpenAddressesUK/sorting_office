@@ -16,7 +16,7 @@ describe SortingOffice::App do
   it "should return address parts" do
     Timecop.freeze
     allow(SortingOffice::Provenance).to receive(:current_sha).and_return("195614f8187bb497c59a0caa8ee3fdfce1f1aa2f")
-    
+
     post '/address', address: "3rd Floor, 65 Clifton Street, London EC2A 4JE"
 
     response = JSON.parse last_response.body
@@ -73,6 +73,14 @@ describe SortingOffice::App do
     expect(last_response.status).to eq(400)
     response = JSON.parse last_response.body
     expect(response["error"]).to eq("We couldn't detect a postcode in your address. Please resubmit with a valid postcode.")
+  end
+
+  it "does not return provenance if noprov is set" do
+    post '/address', address: "3rd Floor, 65 Clifton Street, London EC2A 4JE", noprov: true
+
+    response = JSON.parse last_response.body
+    
+    expect(response["provenance"]).to eq(nil)
   end
 
 end

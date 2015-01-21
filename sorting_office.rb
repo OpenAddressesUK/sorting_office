@@ -24,6 +24,7 @@ module SortingOffice
             error: "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
           }.to_json
         else
+          provenance = params[:noprov] ? nil : address.provenance
           {
             saon: address.saon,
             paon: address.paon,
@@ -31,8 +32,8 @@ module SortingOffice
             locality: address.locality.try(:name),
             town: address.town.try(:name).try(:titleize),
             postcode: address.postcode.try(:name),
-            provenance: address.provenance
-          }.to_json
+            provenance: provenance
+          }.tap { |h| h.delete(:provenance) if provenance.nil? }.to_json
         end
       end
     end
