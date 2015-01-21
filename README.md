@@ -29,6 +29,12 @@ You'd get the following response in JSON format:
 
 It's that simple!
 
+The only caveat is that you must provide a valid postcode with your request, otherwise thee service won't be able to calculate the other address parts. If a postcode is missing or invalid, the service will return a `400` error code and the following JSON:
+
+    {
+      "error": "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
+    }
+
 ## Edge cases
 
 We know that there are [lots of edge cases with addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/), and we know that we might not have caught 100% of them. If there's anything you notice, please [let us know](https://github.com/OpenAddressesUK/sorting_office/issues), or better still [open a pull request to fix it!](https://github.com/OpenAddressesUK/sorting_office/pulls).
