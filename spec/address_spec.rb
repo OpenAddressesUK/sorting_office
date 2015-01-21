@@ -101,4 +101,54 @@ describe SortingOffice::Address do
     expect(address.postcode).to eq(nil)
   end
 
+  it "returns the correct provenance" do
+    Timecop.freeze
+    allow(SortingOffice::Provenance).to receive(:current_sha).and_return("195614f8187bb497c59a0caa8ee3fdfce1f1aa2f")
+
+    address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE")
+    address.parse
+
+    expected = {
+      activity: {
+        executed_at: DateTime.now,
+        processing_scripts: "https://github.com/OpenAddressesUK/sorting_office",
+        derived_from: [
+          {
+            type: "userInput",
+            input: "3rd Floor, 65 Clifton Street, London EC2A 4JE",
+            inputted_at: DateTime.now,
+            processing_script: "https://github.com/OpenAddressesUK/sorting_office/tree/195614f8187bb497c59a0caa8ee3fdfce1f1aa2f/lib/sorting_office/address.rb"
+          },
+          {
+            type: "Source",
+            urls: [
+              "http://alpha.openaddressesuk.org/postcodes/#{address.postcode.token}"
+            ],
+            downloaded_at: DateTime.now,
+            processing_script: "https://github.com/OpenAddressesUK/sorting_office/tree/195614f8187bb497c59a0caa8ee3fdfce1f1aa2f/lib/models/postcode.rb"
+          },
+          {
+            type: "Source",
+            urls: [
+              "http://alpha.openaddressesuk.org/towns/#{address.town.token}"
+            ],
+            downloaded_at: DateTime.now,
+            processing_script: "https://github.com/OpenAddressesUK/sorting_office/tree/195614f8187bb497c59a0caa8ee3fdfce1f1aa2f/lib/models/town.rb"
+          },
+          {
+            type: "Source",
+            urls: [
+              "http://alpha.openaddressesuk.org/streets/#{address.street.token}"
+            ],
+            downloaded_at: DateTime.now,
+            processing_script: "https://github.com/OpenAddressesUK/sorting_office/tree/195614f8187bb497c59a0caa8ee3fdfce1f1aa2f/lib/models/street.rb"
+          }
+        ]
+      }
+    }
+
+    expect(address.provenance).to eq(expected)
+    Timecop.return
+  end
+
 end
