@@ -24,8 +24,50 @@ You'd get the following response in JSON format:
       "street": "Downing Street",
       "locality": null,
       "town": "London",
-      "postcode": "SW1A 2AA"
-    }
+      "postcode": "SW1A 2AA",
+      "provenance": {
+        "activity": {
+          "executed_at": "2015-01-21T16:18:32+00:00",
+          "processing_scripts": "https://github.com/OpenAddressesUK/sorting_office",
+          "derived_from": [
+          {
+            "type": "userInput",
+            "input": "10 Downing Street, London, SW1A 2AA",
+            "inputted_at": "2015-01-21T16:18:32+00:00",
+            "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/sorting_office/address.rb"
+            },
+            {
+              "type": "Source",
+              "urls": [
+              "http://alpha.openaddressesuk.org/postcodes/Uxm2vc"
+              ],
+              "downloaded_at": "2015-01-21T16:18:32+00:00",
+              "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/postcode.rb"
+              },
+              {
+                "type": "Source",
+                "urls": [
+                "http://alpha.openaddressesuk.org/towns/qyHZe2"
+                ],
+                "downloaded_at": "2015-01-21T16:18:32+00:00",
+                "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/town.rb"
+                },
+                {
+                  "type": "Source",
+                  "urls": [
+                  "http://alpha.openaddressesuk.org/streets/Gq5142"
+                  ],
+                  "downloaded_at": "2015-01-21T16:18:32+00:00",
+                  "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/street.rb"
+                }
+                ]
+              }
+            }
+          }
+
+If you’d rather not see the provenance data, you can add `noprov=true` to your request, like so:
+
+      curl --data "address=10 Downing Street, London, SW1A 2AA&noprov=true" https://sorting-office.openaddressesuk.org/address
 
 It's that simple!
 
