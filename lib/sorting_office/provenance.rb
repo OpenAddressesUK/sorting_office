@@ -4,7 +4,7 @@ module SortingOffice
     def self.calculate(original, address)
       {
         activity: {
-          executed_at: DateTime.now,
+          executed_at: DateTime.now.iso8601,
           processing_scripts: "https://github.com/OpenAddressesUK/sorting_office",
           derived_from: derivations(original, address, [:postcode, :town, :locality, :street])
         }
@@ -16,7 +16,7 @@ module SortingOffice
         {
           type: "userInput",
           input: original,
-          inputted_at: DateTime.now,
+          inputted_at: DateTime.now.iso8601,
           processing_script: "#{ENV['GITHUB_REPO_URL']}/tree/#{current_sha}/lib/sorting_office/address.rb"
         },
       ]
@@ -27,7 +27,7 @@ module SortingOffice
           urls: [
             part_url(address.send(part))
           ],
-          downloaded_at: DateTime.now,
+          downloaded_at: DateTime.now.iso8601,
           processing_script: "#{ENV['GITHUB_REPO_URL']}/tree/#{current_sha}/lib/models/#{address.send(part).class.to_s.downcase}.rb"
         }
       end
