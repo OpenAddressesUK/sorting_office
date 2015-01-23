@@ -1,9 +1,10 @@
 module SortingOffice
   class Address
 
-    attr_accessor :address, :postcode, :town, :locality, :street, :paon, :saon
+    attr_accessor :address, :postcode, :town, :locality, :street, :paon, :saon, :provenance
 
     def initialize(address)
+      @original = address
       @address = address
     end
 
@@ -14,6 +15,7 @@ module SortingOffice
         get_street
         get_locality
         get_aon
+        get_provenance
       end
     end
 
@@ -98,6 +100,10 @@ module SortingOffice
         @saon = aons[0].last
       end
 
+    end
+
+    def get_provenance
+      @provenance = Provenance.calculate(@original, self)
     end
 
     private
