@@ -17,6 +17,57 @@
 
       <p>A Sinatra app that takes a UK address string and attempts to parse it into its constituent parts.</p>
 
+      <h2>Try it out!</h2>
+
+      <p>Enter an address below, and click Submit</p>
+
+      <div class="alert alert-danger hidden" role="alert">
+        <p><strong>Sorry!</strong> There seems to be a problem with the address you entered. Please try again</p>
+      </div>
+
+      <p><textarea class="form-control" rows="4" id="address"></textarea></p>
+
+      <p><button type="button" class="btn btn-primary" id="submit">Submit</button></p>
+
+      <div class="well hidden">
+        <p><strong><acronym title="Secondary Addressable Object">SAON</acronym>:</strong> <span id="saon"></span></p>
+        <p><strong><acronym title="Primary Addressable Object">PAON</acronym>:</strong> <span id="paon"></span></p>
+        <p><strong>Street:</strong> <span id="street"></span></p>
+        <p><strong>Locality:</strong> <span id="locality"></span></p>
+        <p><strong>Town:</strong> <span id="town"></span></p>
+        <p><strong>Postcode:</strong> <span id="postcode"></span></p>
+      </div>
+
+      <script>
+      $(document).ready(function() {
+        $('#submit').click(function() {
+          $.post( "/address", { address: $('#address').val() } )
+          .done(function( data ) {
+            $('.alert').addClass('hidden');
+            $.each([
+              'saon',
+              'paon',
+              'street',
+              'locality',
+              'town',
+              'postcode'
+              ], function(i, el) {
+                $('#' + el).text("");
+                if (data[el] != null) {
+                  $('#' + el).text(data[el]);
+                }
+              })
+              $('.well').removeClass('hidden');
+            })
+            .error(function() {
+              $('.well').addClass('hidden');
+              $('.alert').removeClass('hidden');
+            }
+          );
+        })
+      })
+      </script>
+
       <h2>How to use</h2>
 
       <p>Simply POST your address string like so (using curl):</p>
@@ -84,56 +135,7 @@
 
       <p><code>curl --data "address=10 Downing Street, London, SW1A 2AA&noprov=true" https://sorting-office.openaddressesuk.org/address</code></p>
 
-      <h2>Try it out!</h2>
 
-      <p>Enter an address below, and click Submit</p>
-
-      <div class="alert alert-danger hidden" role="alert">
-        <p><strong>Sorry!</strong> There seems to be a problem with the address you entered. Please try again</p>
-      </div>
-
-      <p><textarea class="form-control" rows="4" id="address"></textarea></p>
-
-      <p><button type="button" class="btn btn-primary" id="submit">Submit</button></p>
-
-      <div class="well hidden">
-        <p><strong><acronym title="Secondary Addressable Object">SAON</acronym>:</strong> <span id="saon"></span></p>
-        <p><strong><acronym title="Primary Addressable Object">PAON</acronym>:</strong> <span id="paon"></span></p>
-        <p><strong>Street:</strong> <span id="street"></span></p>
-        <p><strong>Locality:</strong> <span id="locality"></span></p>
-        <p><strong>Town:</strong> <span id="town"></span></p>
-        <p><strong>Postcode:</strong> <span id="postcode"></span></p>
-      </div>
-
-      <script>
-        $(document).ready(function() {
-          $('#submit').click(function() {
-            $.post( "/address", { address: $('#address').val() } )
-              .done(function( data ) {
-                $('.alert').addClass('hidden');
-                $.each([
-                    'saon',
-                    'paon',
-                    'street',
-                    'locality',
-                    'town',
-                    'postcode'
-                  ], function(i, el) {
-                    $('#' + el).text("");
-                    if (data[el] != null) {
-                      $('#' + el).text(data[el]);
-                    }
-                  })
-                $('.well').removeClass('hidden');
-              })
-              .error(function() {
-                $('.well').addClass('hidden');
-                $('.alert').removeClass('hidden');
-              }
-            );
-          })
-        })
-      </script>
 
       <h2>Feedback</h2>
 
