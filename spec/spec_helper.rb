@@ -9,6 +9,7 @@ require 'sorting_office'
 require 'database_cleaner'
 require 'factory_girl'
 require 'rack/test'
+require 'timecop'
 
 module RSpecMixin
   include Rack::Test::Methods

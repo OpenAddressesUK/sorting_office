@@ -21,3 +21,6 @@ deploy:
   on:
     repo: OpenAddressesUK/sorting_office
   run: "rake es:index"
+env:
+  global:
+    - GITHUB_REPO_URL="https://github.com/OpenAddressesUK/sorting_office"

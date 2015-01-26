@@ -1,6 +1,8 @@
 require 'bundler'
 Bundler.require(:default)
 
+Dotenv.load
+
 require 'mongoid-elasticsearch'
 Mongoid::Elasticsearch.autocreate_indexes = false
 Mongoid::Elasticsearch.prefix = ENV["MONGOID_ENVIRONMENT"] || ""
@@ -18,6 +20,7 @@ require 'sorting_office/models/locality'
 require 'sorting_office/models/town'
 require 'sorting_office/models/postcode'
 
+require 'sorting_office/provenance'
 require 'sorting_office/address'
 
 module SortingOffice
