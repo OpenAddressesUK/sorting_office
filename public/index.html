@@ -5,7 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sorting Office : Open Addresses</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap.css" rel="stylesheet" />
+  <script src="jquery.js"></script>
+  <script src="sorting-office.js"></script>
 </head>
 </body>
   <a href="https://github.com/openaddressesuk/sorting_office"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
@@ -15,6 +17,57 @@
       <h1>Sorting Office</h1>
 
       <p>A Sinatra app that takes a UK address string and attempts to parse it into its constituent parts.</p>
+
+      <h2>Try it out!</h2>
+
+      <p>Enter an address below, and click Submit</p>
+
+      <div class="alert alert-danger hidden" role="alert">
+        <p><strong>Sorry!</strong> There seems to be a problem with the address you entered. Please try again</p>
+      </div>
+
+      <p><textarea class="form-control" rows="4" id="address"></textarea></p>
+
+      <p><button type="button" class="btn btn-primary" id="submit">Submit</button></p>
+
+      <div class="well hidden">
+        <p><strong><acronym title="Secondary Addressable Object">SAON</acronym>:</strong> <span id="saon"></span></p>
+        <p><strong><acronym title="Primary Addressable Object">PAON</acronym>:</strong> <span id="paon"></span></p>
+        <p><strong>Street:</strong> <span id="street"></span></p>
+        <p><strong>Locality:</strong> <span id="locality"></span></p>
+        <p><strong>Town:</strong> <span id="town"></span></p>
+        <p><strong>Postcode:</strong> <span id="postcode"></span></p>
+      </div>
+
+      <script>
+      $(document).ready(function() {
+        $('#submit').click(function() {
+          $.post( "/address", { address: $('#address').val() } )
+          .done(function( data ) {
+            $('.alert').addClass('hidden');
+            $.each([
+              'saon',
+              'paon',
+              'street',
+              'locality',
+              'town',
+              'postcode'
+              ], function(i, el) {
+                $('#' + el).text("");
+                if (data[el] != null) {
+                  $('#' + el).text(data[el]);
+                }
+              })
+              $('.well').removeClass('hidden');
+            })
+            .error(function() {
+              $('.well').addClass('hidden');
+              $('.alert').removeClass('hidden');
+            }
+          );
+        })
+      })
+      </script>
 
       <h2>How to use</h2>
 
@@ -71,17 +124,21 @@
   }
 }</pre>
 
+      <p>The only caveat is that you must provide a valid postcode with your request, otherwise the service won't be able to calculate the other address parts. If a postcode is missing or invalid, the service will return a <code>400</code> error code and the following JSON:</p>
+
+<pre>
+  {
+    "error": "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
+  }
+</pre>
+
       <p>If you’d rather not see the provenance data, you can add <code>noprov=true</code> to your request, like so:</p>
 
       <p><code>curl --data "address=10 Downing Street, London, SW1A 2AA&noprov=true" https://sorting-office.openaddressesuk.org/address</code></p>
 
-      <p>The only caveat is that you must provide a valid postcode with your request, otherwise the service won't be able to calculate the other address parts. If a postcode is missing or invalid, the service will return a <code>400</code> error code and the following JSON:</p>
+      <h2>Using in a web application</h2>
 
-<pre>
-{
-  "error": "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
-}
-</pre>
+      <p>If you'd like to use Sorting Office client-side in a web application, <a href="https://github.com/OpenAddressesUK/sorting_office/blob/master/public/sorting-office.js">take a look</a> at the code which powers the demo</p>
 
       <h2>Feedback</h2>
 

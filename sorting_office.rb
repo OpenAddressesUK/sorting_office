@@ -11,10 +11,6 @@ module SortingOffice
       response.headers['Access-Control-Allow-Origin'] = "*"
     end
 
-    get '/' do
-      send_file 'lib/sorting_office/views/index.html'
-    end
-
     post '/address' do
       content_type :json
 
