@@ -7,10 +7,6 @@ require 'json'
 module SortingOffice
   class App < Sinatra::Base
 
-    get '/' do
-      send_file 'lib/sorting_office/views/index.html'
-    end
-
     post '/address' do
       content_type :json
 
