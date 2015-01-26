@@ -7,6 +7,10 @@ require 'json'
 module SortingOffice
   class App < Sinatra::Base
 
+    before do
+      response.headers['Access-Control-Allow-Origin'] = "*"
+    end
+
     post '/address' do
       content_type :json
 
