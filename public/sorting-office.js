@@ -23,7 +23,7 @@
 
 $(document).ready(function() {
   $('#submit').click(function() { // When submit is clicked
-    $.post( "http://sorting-office.openaddressesuk.org/address", { address: $('#address').val() } ) // Post to the sorting office application
+    $.post( "https://sorting-office.openaddressesuk.org/address", { address: $('#address').val() } ) // Post to the sorting office application
     .done(function( data ) { // If the request is successful
       $('.alert').addClass('hidden'); // Hide the error alert (if not already hidden)
       $.each([ // Loop through each potential address part
