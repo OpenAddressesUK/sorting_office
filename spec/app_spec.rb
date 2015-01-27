@@ -79,8 +79,29 @@ describe SortingOffice::App do
     post '/address', address: "3rd Floor, 65 Clifton Street, London EC2A 4JE", noprov: true
 
     response = JSON.parse last_response.body
-    
+
     expect(response["provenance"]).to eq(nil)
+  end
+
+  it "does not queue an address when the contribute flag is not set" do
+    expect(SortingOffice::Queue).not_to receive(:perform)
+    post '/address', address: "3rd Floor, 65 Clifton Street, London EC2A 4JE"
+  end
+
+  it "queues up an address when the contribute flag is set" do
+    address = "3rd Floor, 65 Clifton Street, London EC2A 4JE"
+
+    expect(SortingOffice::Queue).to receive(:perform).with(hash_including(saon: "3rd Floor", paon: "65"))
+
+    post '/address', address: address, contribute: "true"
+  end
+
+  it "queues up an address with provenance when the contribute flag is set and noprov is set" do
+    address = "3rd Floor, 65 Clifton Street, London EC2A 4JE"
+
+    expect(SortingOffice::Queue).to receive(:perform).with(hash_including(town: "London", provenance: duck_type(:[])))
+
+    post '/address', address: address, contribute: "true", noprov: true
   end
 
 end
