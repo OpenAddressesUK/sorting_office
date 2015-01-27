@@ -22,4 +22,6 @@ deploy:
     repo: OpenAddressesUK/sorting_office
 env:
   global:
-    - GITHUB_REPO_URL="https://github.com/OpenAddressesUK/sorting_office"
+  - GITHUB_REPO_URL="https://github.com/OpenAddressesUK/sorting_office"
+  - secure: MmDxv7bpLxPHTUslf8g9lKwPW/2nE/F6ZKZxw8xtPNUaNMRUTyU+8tvOxd1KoUJZtEbtcBH2u4gpjLUqRWeyNT9Td3d699uqDM9kpnBbsQygiEJgzOLHPmjayzsZDWffTINvxWhJPxoHcS8GxtTsV6fvnAv917QZGJtPcJINqJI=
+  - secure: CRtuSgBosPc5fegJyAMFnFz8XyxxCbr6tDTrBWT0nDoj8Jdlikyo8LvRB0yhqlJ00D7vww/U9wfLHV1LLugmLcKOIpBiW/1sS4w2npS8JSoKYbRiMHrQOIIfDbaTlF9KhVMyi5/f6AfoWaiqFbI60edWzh8FLNI3nkeBEjRCOKs=
