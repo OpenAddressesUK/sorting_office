@@ -10,6 +10,8 @@
 //
 // <p><textarea class="form-control" rows="4" id="address"></textarea></p>
 //
+// <p><label><input type="checkbox" id="contribute" /> Also contribute my address to <a href="https://alpha.openaddressesuk.org/">Open Addresses</a></label></p>
+//
 // <p><button type="button" class="btn btn-primary" id="submit">Submit</button></p>
 //
 // <div class="well hidden">
@@ -23,7 +25,13 @@
 
 $(document).ready(function() {
   $('#submit').click(function() { // When submit is clicked
-    $.post( "https://sorting-office.openaddressesuk.org/address", { address: $('#address').val() } ) // Post to the sorting office application
+    submission = { address: $('#address').val() } // Add the address to the submission hash
+
+    if ($('#contribute').is(':checked')) {
+      submission.contribute = true // If the checkbox is checked, add submission=true to the request
+    }
+
+    $.post( "https://sorting-office.openaddressesuk.org/address", submission) // Post to the sorting office application
     .done(function( data ) { // If the request is successful
       $('.alert').addClass('hidden'); // Hide the error alert (if not already hidden)
       $.each([ // Loop through each potential address part
