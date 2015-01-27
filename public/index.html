@@ -39,36 +39,6 @@
         <p><strong>Postcode:</strong> <span id="postcode"></span></p>
       </div>
 
-      <script>
-      $(document).ready(function() {
-        $('#submit').click(function() {
-          $.post( "/address", { address: $('#address').val() } )
-          .done(function( data ) {
-            $('.alert').addClass('hidden');
-            $.each([
-              'saon',
-              'paon',
-              'street',
-              'locality',
-              'town',
-              'postcode'
-              ], function(i, el) {
-                $('#' + el).text("");
-                if (data[el] != null) {
-                  $('#' + el).text(data[el]);
-                }
-              })
-              $('.well').removeClass('hidden');
-            })
-            .error(function() {
-              $('.well').addClass('hidden');
-              $('.alert').removeClass('hidden');
-            }
-          );
-        })
-      })
-      </script>
-
       <h2>How to use</h2>
 
       <p>Simply POST your address string like so (using curl):</p>
