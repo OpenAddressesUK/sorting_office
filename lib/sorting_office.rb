@@ -22,6 +22,7 @@ require 'sorting_office/models/postcode'
 
 require 'sorting_office/provenance'
 require 'sorting_office/address'
+require 'sorting_office/queue'
 
 module SortingOffice
 end
