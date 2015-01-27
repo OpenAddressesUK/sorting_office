@@ -20,7 +20,7 @@ If you'd like to submit the address you're using to the OpenAddresses project, t
 
     curl --data "address=10 Downing Street, London, SW1A 2AA&contribute=true" http://sorting-office.openaddressesuk.org/address
 
-Please make sure you check with your users first!
+Please make sure you check with your users first! And be sure not to violate others' intellectual property or privacy rights with your submission.
 
 You'd get the following response in JSON format:
 
