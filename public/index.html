@@ -28,6 +28,8 @@
 
       <p><textarea class="form-control" rows="4" id="address"></textarea></p>
 
+      <p><label><input type="checkbox" id="contribute" /> Also contribute my address to <a href="https://alpha.openaddressesuk.org/">Open Addresses</a></label></p>
+
       <p><button type="button" class="btn btn-primary" id="submit">Submit</button></p>
 
       <div class="well hidden">
@@ -39,41 +41,17 @@
         <p><strong>Postcode:</strong> <span id="postcode"></span></p>
       </div>
 
-      <script>
-      $(document).ready(function() {
-        $('#submit').click(function() {
-          $.post( "/address", { address: $('#address').val() } )
-          .done(function( data ) {
-            $('.alert').addClass('hidden');
-            $.each([
-              'saon',
-              'paon',
-              'street',
-              'locality',
-              'town',
-              'postcode'
-              ], function(i, el) {
-                $('#' + el).text("");
-                if (data[el] != null) {
-                  $('#' + el).text(data[el]);
-                }
-              })
-              $('.well').removeClass('hidden');
-            })
-            .error(function() {
-              $('.well').addClass('hidden');
-              $('.alert').removeClass('hidden');
-            }
-          );
-        })
-      })
-      </script>
-
       <h2>How to use</h2>
 
       <p>Simply POST your address string like so (using curl):</p>
 
       <p><code>curl --data "address=10 Downing Street, London, SW1A 2AA" https://sorting-office.openaddressesuk.org/address</code></p>
+
+      <p>If you'd like to submit the address you're using to the OpenAddresses project, then set <code>contribute=true</code> like so:</p>
+
+      <p><code>curl --data "address=10 Downing Street, London, SW1A 2AA&contribute=true" https://sorting-office.openaddressesuk.org/address</code></p>
+
+      <p>Please make sure you check with your users first! And be sure not to violate others' intellectual property or privacy rights with your submission.</p>
 
       <p>You'll get the following response in JSON format:</p>
 

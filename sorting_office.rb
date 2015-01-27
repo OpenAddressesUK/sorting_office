@@ -28,16 +28,17 @@ module SortingOffice
             error: "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
           }.to_json
         else
-          provenance = params[:noprov] ? nil : address.provenance
-          {
+          h = {
             saon: address.saon,
             paon: address.paon,
             street: address.street.try(:name).try(:titleize),
             locality: address.locality.try(:name),
             town: address.town.try(:name).try(:titleize),
             postcode: address.postcode.try(:name),
-            provenance: provenance
-          }.tap { |h| h.delete(:provenance) if provenance.nil? }.to_json
+            provenance: address.provenance
+          }
+          SortingOffice::Queue.perform(h) if params[:contribute]
+          h.tap { |h| h.delete(:provenance) if params[:noprov] }.to_json
         end
       end
     end
