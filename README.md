@@ -16,6 +16,12 @@ Simply POST your address string like so (using curl):
 
     curl --data "address=10 Downing Street, London, SW1A 2AA" http://sorting-office.openaddressesuk.org/address
 
+If you'd like to submit the address you're using to the OpenAddresses project, then set `contribute=true` like so:
+
+    curl --data "address=10 Downing Street, London, SW1A 2AA&contribute=true" http://sorting-office.openaddressesuk.org/address
+
+Please make sure you check with your users first!
+
 You'd get the following response in JSON format:
 
     {
