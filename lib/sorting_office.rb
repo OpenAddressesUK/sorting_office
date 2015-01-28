@@ -3,15 +3,11 @@ Bundler.require(:default)
 
 Dotenv.load
 
-require 'mongoid-elasticsearch'
-Mongoid::Elasticsearch.autocreate_indexes = false
-Mongoid::Elasticsearch.prefix = ENV["MONGOID_ENVIRONMENT"] || ""
+require 'mongoid_address_models/require_all'
 
 if ENV["BONSAI_URL"]
   Mongoid::Elasticsearch.client_options = { url: ENV["BONSAI_URL"] }
 end
-
-require 'mongoid_address_models/require_all'
 
 Mongoid.load!(File.join(File.dirname(__FILE__), "..", "config", "mongoid.yml"), ENV["MONGOID_ENVIRONMENT"] || :development)
 

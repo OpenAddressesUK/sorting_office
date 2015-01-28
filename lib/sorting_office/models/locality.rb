@@ -1,8 +1,6 @@
 class Locality
   attr_accessor :distance
 
-  include Mongoid::Elasticsearch
-
   def self.calculate(address, postcode)
     results = es.search(address).results
 
@@ -23,11 +21,5 @@ class Locality
 
     @locality
   end
-
-  elasticsearch!({
-    index_options: {
-      foo: "bar" # Shitty hack to get this working with Bonsai
-    }
-  })
 
 end
