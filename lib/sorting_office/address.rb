@@ -73,7 +73,7 @@ module SortingOffice
               word_number,
               w.strip
             ]
-          else
+          elsif aons.count > 0
             # If there is already an aon, it's probably a suffix (such as 'floor' etc)
             aons.last[2] += " #{w.strip}"
           end
