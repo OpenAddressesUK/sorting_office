@@ -1,7 +1,5 @@
 class Town
 
-  include Mongoid::Elasticsearch
-
   def self.calculate(address, postcode)
     results = es.search(address).results
     matches = []
@@ -21,11 +19,5 @@ class Town
       @town
     end
   end
-
-  elasticsearch!({
-    index_options: {
-      foo: "bar" # Shitty hack to get this working with Bonsai
-    }
-  })
 
 end
