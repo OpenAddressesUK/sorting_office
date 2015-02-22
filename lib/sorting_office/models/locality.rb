@@ -1,11 +1,11 @@
 class Locality
   attr_accessor :distance
 
-  def self.calculate(address, postcode)
+  def self.calculate(address, location)
     results = es.search(address).results
 
     results.each do |r|
-      r.distance = Geokit::LatLng.distance_between(postcode.lat_lng.to_s, r.lat_lng.to_s)
+      r.distance = Geokit::LatLng.distance_between(location.to_s, r.lat_lng.to_s)
     end
 
     sorted = results.sort_by { |r| r.distance }

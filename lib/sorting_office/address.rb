@@ -25,18 +25,18 @@ module SortingOffice
     end
 
     def get_town
-      @town = Town.calculate(@address, @postcode)
+      @town = Town.calculate(@address, @postcode.area)
       # Only remove the last instance of the town name (as the town name may be in the street too)
       @address = remove_element(@town) if @town
     end
 
     def get_street
-      @street = Street.calculate(@address, @postcode)
+      @street = Street.calculate(@address, @postcode.lat_lng)
       @address = remove_element(@street) if @street
     end
 
     def get_locality
-      @locality = Locality.calculate(@address, @postcode)
+      @locality = Locality.calculate(@address, @postcode.lat_lng)
       @address = remove_element(@locality) if @locality
     end
 

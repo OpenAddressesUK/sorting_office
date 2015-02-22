@@ -12,7 +12,7 @@ describe Street do
   it "detects a street" do
     address = "3rd Floor, 65 Clifton Street, London EC2A 4JE"
 
-    street = Street.calculate(address, @postcode)
+    street = Street.calculate(address, @postcode.lat_lng)
 
     expect(street).to eq(@street)
   end
@@ -21,7 +21,7 @@ describe Street do
     FactoryGirl.create(:street, name: "CLIFTON STREET", lat_lng: [51.5224342908258, -0.08321407726274730])
     address = "3rd Floor, 65 Clifton Street, London EC2A 4JE"
 
-    street = Street.calculate(address, @postcode)
+    street = Street.calculate(address, @postcode.lat_lng)
 
     expect(street).to eq(@street)
   end
@@ -30,7 +30,7 @@ describe Street do
     s = FactoryGirl.create(:street, name: "ST JOHN'S ROAD", lat_lng: [51.5224342908258, -0.08321407726274730])
     address = "123 St Johns Road, London EC2A 4JE"
 
-    street = Street.calculate(address, @postcode)
+    street = Street.calculate(address, @postcode.lat_lng)
 
     expect(street).to eq(s)
   end

@@ -14,7 +14,7 @@ describe Locality do
   it "detects a locality name" do
     address = "123 High Street, Testville"
 
-    locality = Locality.calculate(address, @postcode)
+    locality = Locality.calculate(address, @postcode.lat_lng)
 
     expect(locality._id).to eq(@locality._id)
   end

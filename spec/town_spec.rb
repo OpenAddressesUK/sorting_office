@@ -18,7 +18,7 @@ describe Town do
     address = "3rd Floor, 65 Clifton Street, London"
     postcode = Postcode.where(name: "EC2A 4JE").first
 
-    town = Town.calculate(address, postcode)
+    town = Town.calculate(address, postcode.area)
 
     expect(town.name).to eq("LONDON")
   end

@@ -1,9 +1,9 @@
 class Street
 
-  def self.calculate(address, postcode)
+  def self.calculate(address, location)
     nearby_streets = Street.where({
       "lat_lng" => {
-        "$near" => postcode.lat_lng.to_a,
+        "$near" => location.to_a,
         "$maxDistance" => 0.00631472594
       }
     })
