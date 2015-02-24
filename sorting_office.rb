@@ -38,9 +38,26 @@ module SortingOffice
             provenance: address.provenance
           }
           SortingOffice::Queue.perform(h) if params[:contribute]
-          h.tap { |h| h.delete(:provenance) if params[:noprov] }.to_json
+          h = h.tap do |h|
+            [:street, :locality, :town, :postcode].each do |part|
+              h[part] = add_url(address.send(part))
+            end
+            h.delete(:provenance) if params[:noprov]
+          end
+          h.to_json
         end
       end
+    end
+
+    def add_url(part)
+      if part.nil?
+        nil
+      else
+       {
+         name: part.class == Postcode ? part.name : part.name.titleize,
+         url: "http://alpha.openaddressesuk.org/#{part.class.to_s.downcase.pluralize}/#{part.token}"
+       }
+     end
     end
 
   end

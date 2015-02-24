@@ -27,10 +27,19 @@ You'd get the following response in JSON format:
     {
       "saon": null,
       "paon": "10",
-      "street": "Downing Street",
+      "street": {
+        "name": "Downing Street",
+        "url": "http://alpha.openaddressesuk.org/streets/PXxwpD"
+      }
       "locality": null,
-      "town": "London",
-      "postcode": "SW1A 2AA",
+      "town": {
+        "name": "London",
+        "url": "https://alpha.openaddressesuk.org/towns/4194LO"
+      }
+      "postcode": {
+        "name": "SW1A 2AA",
+        "url": "https://alpha.openaddressesuk.org/postcodes/EMCYvD"
+      }
       "provenance": {
         "activity": {
           "executed_at": "2015-01-21T16:18:32+00:00",
