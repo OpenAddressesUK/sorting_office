@@ -23,9 +23,13 @@ describe SortingOffice::App do
 
     expect(response["saon"]).to eq("3rd Floor")
     expect(response["paon"]).to eq("65")
-    expect(response["street"]).to eq("Clifton Street")
-    expect(response["town"]).to eq("London")
-    expect(response["postcode"]).to eq("EC2A 4JE")
+    expect(response["street"]["name"]).to eq("Clifton Street")
+    expect(response["street"]["url"]).to eq("http://alpha.openaddressesuk.org/streets/#{@street.token}")
+    expect(response["locality"]).to eq(nil)
+    expect(response["town"]["name"]).to eq("London")
+    expect(response["town"]["url"]).to eq("http://alpha.openaddressesuk.org/towns/#{@town.token}")
+    expect(response["postcode"]["name"]).to eq("EC2A 4JE")
+    expect(response["postcode"]["url"]).to eq("http://alpha.openaddressesuk.org/postcodes/#{@postcode.token}")
     expect(response["provenance"]).to eq({
       "activity" => {
         "executed_at" => DateTime.now.iso8601,
@@ -91,7 +95,7 @@ describe SortingOffice::App do
   it "queues up an address when the contribute flag is set" do
     address = "3rd Floor, 65 Clifton Street, London EC2A 4JE"
 
-    expect(SortingOffice::Queue).to receive(:perform).with(hash_including(saon: "3rd Floor", paon: "65"))
+    expect(SortingOffice::Queue).to receive(:perform).with(hash_including(saon: "3rd Floor", paon: "65", street: "Clifton Street"))
 
     post '/address', address: address, contribute: "true"
   end
