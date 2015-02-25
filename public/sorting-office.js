@@ -44,7 +44,12 @@ $(document).ready(function() {
         ], function(i, el) {
           $('#' + el).text(""); // Clear any previous text from the named element
           if (data[el] != null) {
-            $('#' + el).text(data[el]); // Populate the named element with the relevant address part
+            // Populate the named element with the relevant address part
+            if (typeof(data[el]) == "object") {
+              $('#' + el).text(data[el].name);
+            } else {
+              $('#' + el).text(data[el]);
+            }
           }
         })
         $('.well').removeClass('hidden'); // Unhide the div which contains the results
