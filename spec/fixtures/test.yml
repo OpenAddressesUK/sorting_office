@@ -205,3 +205,56 @@
   locality:
   town: London
   postcode: N1 3LY
+
+  # From user feedback
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/23
+  # the current Sorting Office loses the street name
+- address: Saxon Mount, 10A Messingham Road, Scotter, Gainsborough, Lincolnshire, DN21 3UH
+  saon: Saxon Mount
+  paon: 10A
+  street: Messingham Road
+  locality: Scotter
+  town: Gainsborough
+  postcode: DN21 3UH
+
+  # "St Ives" should be recognised as the "St. Ives" town. I understand that
+  # the current implementation should be already capable of manage this, but it
+  # is not
+- address: 21 Norfolk Road, St Ives, Cambridgeshire, PE27 3DP
+  saon:
+  paon: "21"
+  street: Norfolk Road
+  locality:
+  town: St. Ives
+  postcode: PE27 3DP
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/24
+  # the current Sorting Office loses the town name
+- address: Rosedale, 90 Charles Close, Thornbury, South Gloucestershire, BS35 1LL
+  saon: Rosedale
+  paon: "90"
+  street: Charles Close
+  locality:
+  town: Thornbury
+  postcode: BS35 1LL
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/25
+  # the current Sorting Office loses both the street and the town name
+- address: East Mill House, Swale Hall Lane, Grinton, North Yorkshire, DL11 6HL
+  saon:
+  paon: East Mill House
+  street: Swale Hall Lane
+  locality:
+  town: Grinton
+  postcode: DL11 6HL
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/26
+  # a town name in the PAON/SAON is parsed as the address' town
+- address: Winchester Mead, 1 Cold Harbour Close, Wickham, Hampshire, PO17 5PT
+  saon: Winchester Mead
+  paon: "1"
+  street: Cold Harbour Close
+  locality:
+  town: Wickham
+  postcode: PO17 5PT
