@@ -245,3 +245,13 @@
   locality:
   town: Grinton
   postcode: DL11 6HL
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/26
+  # a town name in the PAON/SAON is parsed as the address' town
+- address: Winchester Mead, 1 Cold Harbour Close, Wickham, Hampshire, PO17 5PT
+  saon: Winchester Mead
+  paon: "1"
+  street: Cold Harbour Close
+  locality:
+  town: Wickham
+  postcode: PO17 5PT
