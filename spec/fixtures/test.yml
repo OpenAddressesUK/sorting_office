@@ -258,3 +258,12 @@
   locality:
   town: Wickham
   postcode: PO17 5PT
+
+  # similar to the above, but for localities
+- address: 9 Roding Lodge, Royston Gardens, Ilford, IG1 3ST
+  saon: Roding Lodge
+  paon: "9"
+  street: Royston Gardens
+  locality:
+  town: Ilford
+  postcode: IG1 3ST
