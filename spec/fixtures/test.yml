@@ -227,3 +227,12 @@
   locality:
   town: St. Ives
   postcode: PE27 3DP
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/24
+- address: Rosedale, 90 Charles Close, Thornbury, South Gloucestershire, BS35 1LL
+  saon: Rosedale
+  paon: "90"
+  street: Charles Close
+  locality:
+  town: Thornbury
+  postcode: BS35 1LL
