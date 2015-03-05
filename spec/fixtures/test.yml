@@ -236,3 +236,12 @@
   locality:
   town: Thornbury
   postcode: BS35 1LL
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/25
+- address: East Mill House, Swale Hall Lane, Grinton, North Yorkshire, DL11 6HL
+  saon:
+  paon: East Mill House
+  street: Swale Hall Lane
+  locality:
+  town: Grinton
+  postcode: DL11 6HL
