@@ -216,3 +216,14 @@
   locality: Scotter
   town: Gainsborough
   postcode: DN21 3UH
+
+  # "St Ives" should be recognised as the "St. Ives" town. I understand that
+  # the current implementation should be already capable of manage this, but it
+  # is not.
+- address: 21 Norfolk Road, St Ives, Cambridgeshire, PE27 3DP
+  saon:
+  paon: "21"
+  street: Norfolk Road
+  locality:
+  town: St. Ives
+  postcode: PE27 3DP
