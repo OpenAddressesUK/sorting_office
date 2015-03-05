@@ -205,3 +205,14 @@
   locality:
   town: London
   postcode: N1 3LY
+
+  # From user feedback
+
+  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/23
+- address: Saxon Mount, 10A Messingham Road, Scotter, Gainsborough, Lincolnshire, DN21 3UH
+  saon: Saxon Mount
+  paon: 10A
+  street: Messingham Road
+  locality: Scotter
+  town: Gainsborough
+  postcode: DN21 3UH
