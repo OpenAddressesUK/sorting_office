@@ -229,16 +229,6 @@
   town: St. Ives
   postcode: PE27 3DP
 
-  # originally from https://github.com/OpenAddressesUK/sorting_office/issues/24
-  # the current Sorting Office loses the town name
-- address: Rosedale, 90 Charles Close, Thornbury, South Gloucestershire, BS35 1LL
-  saon: Rosedale
-  paon: "90"
-  street: Charles Close
-  locality:
-  town: Thornbury
-  postcode: BS35 1LL
-
   # originally from https://github.com/OpenAddressesUK/sorting_office/issues/25
   # the current Sorting Office loses both the street and the town name
 - address: East Mill House, Swale Hall Lane, Grinton, North Yorkshire, DL11 6HL
