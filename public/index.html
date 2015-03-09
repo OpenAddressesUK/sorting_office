@@ -58,10 +58,19 @@
       <pre>{
   "saon": null,
   "paon": "10",
-  "street": "Downing Street",
+  "street": {
+    "name": "Downing Street",
+    "url": "http://alpha.openaddressesuk.org/streets/PXxwpD"
+  }
   "locality": null,
-  "town": "London",
-  "postcode": "SW1A 2AA",
+  "town": {
+    "name": "London",
+    "url": "https://alpha.openaddressesuk.org/towns/4194LO"
+  }
+  "postcode": {
+    "name": "SW1A 2AA",
+    "url": "https://alpha.openaddressesuk.org/postcodes/EMCYvD"
+  }
   "provenance": {
     "activity": {
       "executed_at": "2015-01-21T16:18:32+00:00",
@@ -72,35 +81,35 @@
         "input": "10 Downing Street, London, SW1A 2AA",
         "inputted_at": "2015-01-21T16:18:32+00:00",
         "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/sorting_office/address.rb"
-      },
-      {
-        "type": "Source",
-        "urls": [
-        "http://alpha.openaddressesuk.org/postcodes/Uxm2vc"
-        ],
-        "downloaded_at": "2015-01-21T16:18:32+00:00",
-        "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/postcode.rb"
-      },
-      {
-        "type": "Source",
-        "urls": [
-        "http://alpha.openaddressesuk.org/towns/qyHZe2"
-        ],
-        "downloaded_at": "2015-01-21T16:18:32+00:00",
-        "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/town.rb"
-      },
-      {
-        "type": "Source",
-        "urls": [
-        "http://alpha.openaddressesuk.org/streets/Gq5142"
-        ],
-        "downloaded_at": "2015-01-21T16:18:32+00:00",
-        "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/street.rb"
-      }
-      ]
-    }
-  }
-}</pre>
+        },
+        {
+          "type": "Source",
+          "urls": [
+          "http://alpha.openaddressesuk.org/postcodes/Uxm2vc"
+          ],
+          "downloaded_at": "2015-01-21T16:18:32+00:00",
+          "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/postcode.rb"
+          },
+          {
+            "type": "Source",
+            "urls": [
+            "http://alpha.openaddressesuk.org/towns/qyHZe2"
+            ],
+            "downloaded_at": "2015-01-21T16:18:32+00:00",
+            "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/town.rb"
+            },
+            {
+              "type": "Source",
+              "urls": [
+              "http://alpha.openaddressesuk.org/streets/Gq5142"
+              ],
+              "downloaded_at": "2015-01-21T16:18:32+00:00",
+              "processing_script": "https://github.com/OpenAddressesUK/sorting_office/tree/7dd23cb19709680646a20dddfeb18b53ea4346e2/lib/models/street.rb"
+            }
+            ]
+          }
+        }
+      }</pre>
 
       <p>The only caveat is that you must provide a valid postcode with your request, otherwise the service won't be able to calculate the other address parts. If a postcode is missing or invalid, the service will return a <code>400</code> error code and the following JSON:</p>
 
