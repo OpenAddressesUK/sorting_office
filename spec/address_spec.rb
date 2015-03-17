@@ -3,9 +3,9 @@ require 'spec_helper'
 describe SortingOffice::Address do
 
   before(:each) do
-    FactoryGirl.create(:postcode, name: "EC2A 4JE", area: "EC", lat_lng: [51.522387, -0.083648])
+    FactoryGirl.create(:postcode, name: "EC2A 4JE", area: "EC", lat_lng: [-0.083648, 51.522387])
     FactoryGirl.create(:town, name: "LONDON", area: "EC")
-    FactoryGirl.create(:street, name: "CLIFTON STREET", lat_lng: [51.5224342908254, -0.08321407726274722])
+    FactoryGirl.create(:street, name: "CLIFTON STREET", lat_lng: [-0.08321407726274722, 51.5224342908254])
     Town.es.index_all
     Town.es.index.refresh
   end
@@ -40,7 +40,7 @@ describe SortingOffice::Address do
   end
 
   it "only removes the last instance of the town name after parsing" do
-    FactoryGirl.create(:street, name: "LONDON ROAD", lat_lng: [51.5224342908254, -0.08321407726274722])
+    FactoryGirl.create(:street, name: "LONDON ROAD", lat_lng: [-0.08321407726274722, 51.5224342908254])
     address = SortingOffice::Address.new("123 London Road, London EC2A 4JE")
     address.get_postcode
     address.get_town
@@ -49,7 +49,7 @@ describe SortingOffice::Address do
   end
 
   it "removes the street after parsing" do
-    FactoryGirl.create(:street, name: "PRINCE'S ROAD", lat_lng: [51.5224342908254, -0.08321407726274722])
+    FactoryGirl.create(:street, name: "PRINCE'S ROAD", lat_lng: [-0.08321407726274722, 51.5224342908254])
     address = SortingOffice::Address.new("123 Princes Road, London EC2A 4JE")
     address.get_postcode
     address.get_street
@@ -84,7 +84,7 @@ describe SortingOffice::Address do
   end
 
   it "gets the paon if no saon is present" do
-    FactoryGirl.create(:street, name: "WALDEMAR AVENUE", lat_lng: [51.5224342908254, -0.08321407726274722])
+    FactoryGirl.create(:street, name: "WALDEMAR AVENUE", lat_lng: [-0.08321407726274722, 51.5224342908254])
     address = SortingOffice::Address.new("26 Waldemar Avenue Mansions, Waldemar Avenue, London, EC2A 4JE")
     address.get_postcode
     address.get_town

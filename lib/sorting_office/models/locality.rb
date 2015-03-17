@@ -2,7 +2,9 @@ class Locality
   attr_accessor :distance
 
   def self.calculate(address, location)
-    results = es.search(address).results
+    address = address.split(/,|\r/).drop(1).join(" ")
+
+    results = es.search(address, per_page: 50).results
 
     results.each do |r|
       r.distance = Geokit::LatLng.distance_between(location.to_s, r.lat_lng.to_s)

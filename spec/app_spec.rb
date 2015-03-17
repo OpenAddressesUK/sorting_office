@@ -3,9 +3,9 @@ require 'spec_helper'
 describe SortingOffice::App do
 
   before(:each) do
-    @postcode = FactoryGirl.create(:postcode, name: "EC2A 4JE", area: "EC", lat_lng: [51.522387, -0.083648])
+    @postcode = FactoryGirl.create(:postcode, name: "EC2A 4JE", area: "EC", lat_lng: [-0.083648, 51.522387])
     @town = FactoryGirl.create(:town, name: "LONDON", area: "EC")
-    @street = FactoryGirl.create(:street, name: "CLIFTON STREET", lat_lng: [51.5224342908254, -0.08321407726274722])
+    @street = FactoryGirl.create(:street, name: "CLIFTON STREET", lat_lng: [-0.08321407726274722, 51.5224342908254])
     FactoryGirl.create(:locality, name: "STUB")
     Town.es.index_all
     Town.es.index.refresh
