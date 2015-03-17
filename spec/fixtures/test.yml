@@ -241,18 +241,18 @@
 
   # originally from https://github.com/OpenAddressesUK/sorting_office/issues/26
   # a town name in the PAON/SAON is parsed as the address' town
-- address: Winchester Mead, 1 Cold Harbour Close, Wickham, Hampshire, PO17 5PT
+- address: Winchester Mead, 1 Cold Harbour Close, Wickham, Fareham, Hampshire, PO17 5PT
   saon: Winchester Mead
   paon: "1"
   street: Cold Harbour Close
-  locality:
-  town: Wickham
+  locality: Wickham
+  town: Fareham
   postcode: PO17 5PT
 
   # similar to the above, but for localities
 - address: 9 Roding Lodge, Royston Gardens, Ilford, IG1 3ST
-  saon: Roding Lodge
-  paon: "9"
+  saon:
+  paon: "9 Roding Lodge"
   street: Royston Gardens
   locality:
   town: Ilford
