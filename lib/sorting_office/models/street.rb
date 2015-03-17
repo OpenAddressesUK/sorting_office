@@ -27,6 +27,17 @@ class Street
         return first_match
       end
 
+      # Compare the Levenshtein distance between the address and the street name
+      distance = matches.map do |m|
+        {
+          distance: Text::Levenshtein.distance(address.upcase, m.name) ,
+          street: m
+        }
+      end
+
+      distance.sort_by { |d| d[:distance] }
+      return distance.last[:street]
+
     end
   end
 

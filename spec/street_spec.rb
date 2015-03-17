@@ -35,4 +35,13 @@ describe Street do
     expect(street).to eq(s)
   end
 
+  it "returns one street if there are two records with similar names in close proximity" do
+    st = FactoryGirl.create(:street, name: "UPPER CLIFTON STREET", lat_lng: [-0.08321407726274730, 51.5224342908258])
+    address = "3rd Floor, 65 Upper Clifton Street, London EC2A 4JE"
+
+    street = Street.calculate(address, @postcode.lat_lng)
+
+    expect(street).to eq(st)
+  end
+
 end
