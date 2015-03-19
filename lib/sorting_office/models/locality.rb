@@ -2,7 +2,7 @@ class Locality
   attr_accessor :distance
 
   def self.calculate(address, location)
-    address = address.split(/,|\r/).drop(1).join(" ")
+    address = address.split(/,|\r|\n/).drop(1).join(" ")
 
     results = es.search(address, per_page: 50).results
 
