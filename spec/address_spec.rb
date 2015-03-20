@@ -17,6 +17,13 @@ describe SortingOffice::Address do
     expect(address.address).to_not match /EC2A 4JE/
   end
 
+  it "removes the everything after the postcode after parsing" do
+    address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE Tel: 123456789 Fax: 9483442323")
+    address.get_postcode
+
+    expect(address.address).to_not match /Tel: 123456789 Fax: 9483442323/
+  end
+
   it "removes the postcode after if lowercase" do
     address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London ec2a 4je")
     address.get_postcode
