@@ -109,7 +109,7 @@ module SortingOffice
     private
 
       def remove_element(el)
-        name = Regexp.quote(el.name).gsub("\\ ", " ") # Regexp.quote escapes spaces for some reason
+        name = el.name.gsub(/(\(|\))/, '.') # Remove brackets from road names and replace with any single character regex matcher
         pattern = name.reverse.gsub(/([^0-9A-Za-z ])/, '\1?')
         @address.reverse.sub(/#{pattern}/i, "").reverse
       end

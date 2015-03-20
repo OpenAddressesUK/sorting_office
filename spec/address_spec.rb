@@ -57,6 +57,15 @@ describe SortingOffice::Address do
     expect(address.address).to_not match /Princes Road/
   end
 
+  it "removes the street after parsing when there is a bracket in a street name" do
+    FactoryGirl.create(:street, name: "TEST STREET (WEST)", lat_lng: [-0.08321407726274722, 51.5224342908254])
+    address = SortingOffice::Address.new("3rd Floor, 65 Test Street West, London EC2A 4JE")
+    address.get_postcode
+    address.get_town
+
+    expect(address.address).to_not match /Clifton Street West/
+  end
+
   it "ignores special characters when removing a street" do
 
   end
