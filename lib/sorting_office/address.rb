@@ -110,7 +110,7 @@ module SortingOffice
 
       def remove_element(el)
         pattern = el.name.reverse.gsub(/([^0-9A-Za-z ])/, '\1?')
-        @address.reverse.sub(/#{pattern}/i, "").reverse
+        @address.reverse.sub(/#{Regexp.escape(pattern)}/i, "").reverse
       end
 
   end
