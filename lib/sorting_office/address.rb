@@ -109,7 +109,8 @@ module SortingOffice
     private
 
       def remove_element(el)
-        pattern = el.name.reverse.gsub(/([^0-9A-Za-z ])/, '\1?')
+        name = Regexp.quote(el.name).gsub("\\ ", " ") # Regexp.quote escapes spaces for some reason
+        pattern = name.reverse.gsub(/([^0-9A-Za-z ])/, '\1?')
         @address.reverse.sub(/#{pattern}/i, "").reverse
       end
 
