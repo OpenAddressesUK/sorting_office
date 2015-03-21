@@ -23,7 +23,7 @@ module SortingOffice
       @postcode = Postcode.calculate(@address)
       if @postcode
         regex = @postcode.name.gsub(' ', ' ?')
-        @address = @address[/^.+#{regex}/i] # Remove anything after the postcode
+        @address = @address[/^.+#{regex}/im] # Remove anything after the postcode
         @address = @address.gsub(/#{regex}/i, "")
       end
     end
