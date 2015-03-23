@@ -20,8 +20,10 @@ module SortingOffice
     end
 
     def get_postcode
-      @postcode = Postcode.calculate(@address)
-      if @postcode
+      result = Postcode.calculate(@address)
+      if !result.nil?
+        @address = result[:address]
+        @postcode = result[:postcode]
         regex = @postcode.name.gsub(' ', ' ?')
         @address = @address[/^.+#{regex}/im] # Remove anything after the postcode
         @address = @address.gsub(/#{regex}/i, "")

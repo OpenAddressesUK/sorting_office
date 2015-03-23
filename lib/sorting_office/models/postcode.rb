@@ -6,7 +6,12 @@ class Postcode
     matches = address.scan(REGEX)
     if matches.count > 0
       postcode = UKPostcode.new(matches.last[0])
-      where(name: postcode.norm).first
+      {
+        address: address.gsub(matches.last[0], postcode.norm),
+        postcode: where(name: postcode.norm).first
+      }
+    else
+      nil
     end
   end
 
