@@ -89,7 +89,7 @@ It's that simple!
 The only caveat is that you must provide a valid postcode with your request, otherwise the service won't be able to calculate the other address parts. If a postcode is missing or invalid, the service will return a `400` error code and the following JSON:
 
     {
-      "error": "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
+      "error": "We couldn't detect a real postcode in your address. Please resubmit with a valid postcode."
     }
 
 ## Edge cases

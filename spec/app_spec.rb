@@ -76,7 +76,7 @@ describe SortingOffice::App do
 
     expect(last_response.status).to eq(400)
     response = JSON.parse last_response.body
-    expect(response["error"]).to eq("We couldn't detect a postcode in your address. Please resubmit with a valid postcode.")
+    expect(response["error"]).to eq("We couldn't detect a real postcode in your address. Please resubmit with a valid postcode.")
   end
 
   it "does not return provenance if noprov is set" do

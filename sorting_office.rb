@@ -25,7 +25,7 @@ module SortingOffice
         if address.postcode.nil?
           status 400
           {
-            error: "We couldn't detect a postcode in your address. Please resubmit with a valid postcode."
+            error: "We couldn't detect a real postcode in your address. Please resubmit with a valid postcode."
           }.to_json
         else
           h = {

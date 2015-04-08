@@ -10,6 +10,12 @@ describe SortingOffice::Address do
     Town.es.index.refresh
   end
 
+  it "doesn't explode if postcode isn't found" do
+    address = SortingOffice::Address.new("Jubilee House, , Lytham, FY8 5FT")
+    address.parse
+    expect(address.postcode).to be_nil
+  end
+
   it "removes the postcode after parsing" do
     address = SortingOffice::Address.new("3rd Floor, 65 Clifton Street, London EC2A 4JE")
     address.get_postcode
