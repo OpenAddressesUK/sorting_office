@@ -21,7 +21,7 @@ module SortingOffice
 
     def get_postcode
       result = Postcode.calculate(@address)
-      if !result.nil?
+      if !result.nil? && !result[:postcode].nil?
         @address = result[:address]
         @postcode = result[:postcode]
         regex = @postcode.name.gsub(' ', ' ?')
