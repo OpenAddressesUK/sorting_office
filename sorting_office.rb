@@ -6,6 +6,7 @@ require 'json'
 
 module SortingOffice
   class App < Sinatra::Base
+    use Rack::Angerfist, tracker_id: ENV['GA_TRACKER_ID'], domain: ENV['GA_TRACKER_DOMAIN']
 
     before do
       response.headers['Access-Control-Allow-Origin'] = "*"
