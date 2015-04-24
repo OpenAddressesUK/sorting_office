@@ -127,6 +127,27 @@
 
       <p>If you'd like to use Sorting Office client-side in a web application, <a href="https://github.com/OpenAddressesUK/sorting_office/blob/master/public/sorting-office.js">take a look</a> at the code which powers the demo</p>
 
+      <h2>Address format</h2>
+
+      <p>The address format returned in the JSON closely mirrors the BS7666 standard for addresses. It contains the following fields where <code>name</code> is the name of the resource, and <code>url</code> is the Open Addresses URL for that resource:</p>
+
+      <ul>
+      <li>
+      <code>saon</code>: The Secondary Addressable Object - this is usually something like a flat number or any other sub unit</li>
+      <li>
+      <code>paon</code>: The Primary Addressable Object - this is usually a house number or a building name</li>
+      <li>
+      <code>street</code>: The street where the building office resides</li>
+      <li>
+      <code>locality</code>: Sometimes, an address is associated with a locality, which identifies the address with a smaller geographical area than the Post Town (see below).</li>
+      <li>
+      <code>town</code>: This is the Post Town where the address is located. This usually corresponds to the sorting office that handles the mail for the address, as may take in many smaller towns, urban districts and villages (see locality). This is always returned.</li>
+      <li>
+      <code>postcode</code>: This is the Postcode for the address. Currently a postcode is needed for Sorting Office to begin parsing the address, and is always returned.</li>
+      </ul>
+
+      <p>We are considering how to evolve this format to suit the needs of our roadmap. You can comment on this feature here: <a href="https://github.com/OpenAddressesUK/roadmap/issues/66">https://github.com/OpenAddressesUK/roadmap/issues/66</a></p>
+      
       <h2>Feedback</h2>
 
       <p>We know that there are <a href="https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/">lots of edge cases with addresses</a>, and we know that we might not have caught 100% of them. If there's anything you notice, please <a href="https://github.com/OpenAddressesUK/sorting_office/issues">let us know</a>, or better still <a href="https://github.com/OpenAddressesUK/sorting_office/pulls">open a pull request to fix it!</a>.</p>
