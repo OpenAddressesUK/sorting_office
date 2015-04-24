@@ -92,6 +92,32 @@ The only caveat is that you must provide a valid postcode with your request, oth
       "error": "We couldn't detect a real postcode in your address. Please resubmit with a valid postcode."
     }
 
+## Address format
+
+The address format closely mirrors the BS7666 standard for addresses, which contains the following fields:
+
+The following fields return a single string or number:
+
+`saon`: The Secondary Addressable Object - this is usually something like a flat number or any other sub unit
+`paon`: The Primary Addressable Object - this is usually a house number or a building name
+
+These fields will return a JSON object in the following format:
+
+```JSON
+{
+  "name": "",
+  "url": ""
+}
+```
+
+Where `name` is the name of the resource, and `url` is the Open Addresses URL for that resource.
+
+`street`: The street where the building office resides
+`locality`: Sometimes, an address is associated with a locality, which identifies the address with a smaller geographical area than the Post Town (see below).
+`town`: This is the Post Town where the address is located. This usually corresponds to the sorting office that handles the mail for the address, as may take in many smaller towns, urban districts and villages (see locality). This is always returned.
+`postcode`: This is the Postcode for the address. A postcode is needed for Sorting Office to begin parsing the address, and is always returned. 
+
+
 ## Edge cases
 
 We know that there are [lots of edge cases with addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/), and we know that we might not have caught 100% of them. If there's anything you notice, please [let us know](https://github.com/OpenAddressesUK/sorting_office/issues), or better still [open a pull request to fix it!](https://github.com/OpenAddressesUK/sorting_office/pulls).
