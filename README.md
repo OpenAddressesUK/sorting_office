@@ -94,29 +94,16 @@ The only caveat is that you must provide a valid postcode with your request, oth
 
 ## Address format
 
-The address format closely mirrors the BS7666 standard for addresses, which contains the following fields:
+The address format returned in the JSON closely mirrors the BS7666 standard for addresses. It contains the following fields where `name` is the name of the resource, and `url` is the Open Addresses URL for that resource:
 
-The following fields return a single string or number:
+`saon`: The Secondary Addressable Object - this is usually something like a flat number or any other sub unit <br>
+`paon`: The Primary Addressable Object - this is usually a house number or a building name <br>
+`street`: The street where the building office resides <br>
+`locality`: Sometimes, an address is associated with a locality, which identifies the address with a smaller geographical area than the Post Town (see below). <br>
+`town`: This is the Post Town where the address is located. This usually corresponds to the sorting office that handles the mail for the address, as may take in many smaller towns, urban districts and villages (see locality). This is always returned. <br>
+`postcode`: This is the Postcode for the address. Currently a postcode is needed for Sorting Office to begin parsing the address, and is always returned. <br>
 
-`saon`: The Secondary Addressable Object - this is usually something like a flat number or any other sub unit
-`paon`: The Primary Addressable Object - this is usually a house number or a building name
-
-These fields will return a JSON object in the following format:
-
-```JSON
-{
-  "name": "",
-  "url": ""
-}
-```
-
-Where `name` is the name of the resource, and `url` is the Open Addresses URL for that resource.
-
-`street`: The street where the building office resides
-`locality`: Sometimes, an address is associated with a locality, which identifies the address with a smaller geographical area than the Post Town (see below).
-`town`: This is the Post Town where the address is located. This usually corresponds to the sorting office that handles the mail for the address, as may take in many smaller towns, urban districts and villages (see locality). This is always returned.
-`postcode`: This is the Postcode for the address. A postcode is needed for Sorting Office to begin parsing the address, and is always returned. 
-
+We are considering how to evolve this format to suit the needs of our roadmap. You can comment on this feature here: [https://github.com/OpenAddressesUK/roadmap/issues/66](https://github.com/OpenAddressesUK/roadmap/issues/66)
 
 ## Edge cases
 
