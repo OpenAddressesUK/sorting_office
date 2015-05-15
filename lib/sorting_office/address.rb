@@ -49,7 +49,7 @@ module SortingOffice
     def get_aon
       aons = []
 
-      lines = @address.split(/\n|,|\s{2,}/)
+      lines = @address.split(/\n|,|\s{2,}/).reject { |l| l.blank? }
 
       if lines.count > 1
         lines.each_with_index do |l, line_number|
