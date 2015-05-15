@@ -35,8 +35,15 @@ class Street
         }
       end
 
-      distance.sort_by { |d| d[:distance] }
-      return distance.last[:street]
+      # If the distances are all identical, we have a locality that has the same name as a nearby road
+      if distance.uniq { |d| d[:distance] }.count == 1
+        # Throw away the locality
+        a = address.strip.split(/,/)[0...-1].join
+        return matches.select { |m| a.match(/#{m.name}/i) }.first
+      else
+        distance.sort_by { |d| d[:distance] }
+        return distance.last[:street]
+      end
 
     end
   end

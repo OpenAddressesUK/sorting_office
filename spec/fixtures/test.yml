@@ -257,3 +257,11 @@
   locality:
   town: Ilford
   postcode: IG1 3ST
+
+- address: St Martin's Youth Hall, High Trees, Tulse Hill, London SW2 3PX
+  saon:
+  paon: St Martin's Youth Hall
+  street: High Trees
+  locality: Tulse Hill
+  town: London
+  postcode: SW2 3PX
