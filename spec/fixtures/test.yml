@@ -258,10 +258,18 @@
   town: Ilford
   postcode: IG1 3ST
 
-- address: St Martin's Youth Hall, High Trees, Tulse Hill, London SW2 3PX
+- address: St Martin's Youth Hall\nHigh Trees\nTulse Hill\nLondon SW2 3PX
   saon:
   paon: St Martin's Youth Hall
   street: High Trees
   locality: Tulse Hill
   town: London
   postcode: SW2 3PX
+
+- address: The School House, St John's School, Overton Road, London SW9 7HH
+  saon: The School House
+  paon: St John's School
+  street: Overton Road
+  locality:
+  town: London
+  postcode: SW9 7HH

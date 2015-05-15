@@ -88,7 +88,12 @@ module SortingOffice
 
       # If no AONs have numbers, add the first line to the AON list
       if aons.count == 0
-        @paon = lines.first.strip
+        if lines.count == 2
+          @saon = lines.first.strip
+          @paon = lines.last.strip
+        else
+          @paon = lines.first.strip
+        end
       end
 
       # If there is only one AON found so far
