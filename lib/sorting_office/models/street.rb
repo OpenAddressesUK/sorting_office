@@ -41,7 +41,7 @@ class Street
         a = address.strip.split(/,|\n/)[0...-1].join
         return matches.select { |m| a.match(/#{m.name}/i) }.first
       else
-        distance.sort_by { |d| d[:distance] }
+        distance.sort_by! { |d| d[:distance] }
         return distance.last[:street]
       end
 
